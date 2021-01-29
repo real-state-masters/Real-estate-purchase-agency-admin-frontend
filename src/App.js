@@ -1,10 +1,10 @@
-import Login from './components/Login/Login';
+import DashboardFrame from './components/DashboardFrame/DashboardFrame';
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      <DashboardFrame />
     </div>
   );
 }
