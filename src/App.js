@@ -1,5 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+/*
+
+https://github.com/typicode/json-server ,  simulate the fetching of data . port 3000
+
+*/
 
 function App() {
   return (
