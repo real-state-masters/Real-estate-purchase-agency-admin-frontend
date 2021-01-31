@@ -1,0 +1,102 @@
+{
+  "properties": [
+    {
+      "id": 2342,
+      "location": [
+        {
+          "id": 124234234,
+          "coordinates": [
+            234234.23,
+            141234.23
+          ],
+          "address": "my street 23",
+          "context": {},
+          "property_id": 3
+        }
+      ],
+      "type": "home",
+      "area": 232,
+      "status": "sold",
+      "sold_at": "yesterday",
+      "bought_by": "3423423",
+      "created_at": "two days ago",
+      "updated_at": "23423423",
+      "price": 99999993,
+      "images": [],
+      "description": "asfasdfsfd",
+      "num_bathrooms": 2,
+      "num_rooms": 3,
+      "pets": true,
+      "fully_fitted_kitchen": true,
+      "furnished": true,
+      "condition": 0,
+      "contact": 32423422,
+      "title": "The best one"
+    },
+    {
+      "id": 2342,
+      "location": [
+        {
+          "id": 124234234,
+          "coordinates": [
+            234234.23,
+            141234.23
+          ],
+          "address": "my street 23",
+          "context": {},
+          "property_id": 3
+        }
+      ],
+      "type": "home",
+      "area": 232,
+      "status": "sold",
+      "sold_at": "yesterday",
+      "bought_by": "3423423",
+      "created_at": "two days ago",
+      "updated_at": "23423423",
+      "price": 99999993,
+      "images": [],
+      "description": "asfasdfsfd",
+      "num_bathrooms": 2,
+      "num_rooms": 3,
+      "pets": true,
+      "fully_fitted_kitchen": true,
+      "furnished": true,
+      "condition": 0,
+      "contact": 32423422,
+      "title": "The best one"
+    }
+  ],
+  "users": [
+    {
+      "id": "123412341234234234",
+      "email": "sdfasdf@gmail.com",
+      "password": "3rasdfasdfasdfasdf",
+      "contact": {
+        "phone_number": 123412341234,
+        "email": "2341234@gmil.com",
+        "name": "asdfasdf",
+        "lastName": "234234asdf"
+      },
+      "booked_properties": [
+        12342,
+        534543,
+        345345
+      ]
+    },
+    {
+      "id": "123412341234234234",
+      "email": "sdfasdf@gmail.com",
+      "password": "3rasdfasdfasdfasdf",
+      "contact": {
+        "phone_number": 123412341234,
+        "email": "2341234@gmil.com",
+        "name": "asdfasdf",
+        "lastName": "234234asdf"
+      },
+      "booked_properties": [
+        12342
+      ]
+    }
+  ]
+}
