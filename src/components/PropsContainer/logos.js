@@ -1,4 +1,4 @@
-const sofa = () => {
+export const Sofa = () => {
   return (
     <svg
       width="21"
@@ -16,7 +16,7 @@ const sofa = () => {
   );
 };
 
-const bathroom = () => {
+export const Bathroom = () => {
   return (
     <svg
       width="18"
@@ -34,9 +34,30 @@ const bathroom = () => {
   );
 };
 
-const sold = () => {
+export const Square = () => {
   return (
     <svg
+      width="16"
+      height="14"
+      viewBox="0 0 16 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="0.697998"
+        y="0.748291"
+        width="14.7565"
+        height="12.5205"
+        stroke="#032336"
+        stroke-opacity="0.55"
+      />
+    </svg>
+  );
+};
+export const Sold = () => {
+  return (
+    <svg
+      className="icon-margin"
       width="22"
       height="21"
       viewBox="0 0 22 21"
@@ -51,9 +72,10 @@ const sold = () => {
   );
 };
 
-const remove = () => {
+export const Remove = () => {
   return (
     <svg
+      className="icon-margin"
       width="15"
       height="19"
       viewBox="0 0 15 19"
