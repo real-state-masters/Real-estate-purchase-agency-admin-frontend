@@ -1,0 +1,83 @@
+.props-container {
+    border: .5px solid #7586915e;
+    font-size: 15px;
+    line-height: 18.9px;
+    letter-spacing: -4%;
+    border-radius: 5px;
+    width: 85%;
+    min-height: 50px;
+    margin: auto;
+    margin-top: 200px; // temp
+    display: flex;
+    color: #758691c4;
+    text-align: none;
+    justify-content: space-between;
+    box-shadow: 1px 2px 1px #7586915e;
+
+
+    .prop-item {
+
+        text-align: left;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        margin: 10px;
+        position: relative;
+
+        * {
+            margin: 5px;
+
+        }
+
+        .title {
+            float: left !important;
+            margin-bottom: 13px;
+
+        }
+
+        img {
+
+            border-radius: 5px;
+        }
+
+        .address {
+            display: flex;
+            flex-direction: column;
+            margin-top: 25px;
+
+            .street {
+
+
+                font-weight: 600;
+                color: #032336;
+                line-height: 19px;
+            }
+        }
+
+        .price {
+            margin-top: 27px;
+            font-weight: 400px;
+            color: #FC9543;
+            line-height: 19px;
+
+
+        }
+
+    }
+
+}
+
+
+.sofa-icon {
+
+    /* Vector */
+
+    position: absolute;
+    left: 60.66%;
+    right: 38%;
+    top: 52.52%;
+    bottom: 46.23%;
+
+    background: rgba(3, 35, 54, 0.55);
+
+}
