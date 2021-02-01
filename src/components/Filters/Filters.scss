@@ -1,9 +1,6 @@
 .filter-container {
-    border: .5px solid #7586915e;
     font-size: 15px;
     line-height: 18.9px;
-    letter-spacing: -4%;
-    border-radius: 5px;
     width: 85%;
     min-height: 50px;
     margin: auto;
@@ -13,10 +10,43 @@
     justify-content: space-between;
     box-shadow: 1px 2px 1px #7586915e;
     color: #758691c4;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.300);
+    border-radius: 6px;
 
+    button {
+        outline-style: none;
+        background-color: white;
+        box-sizing: border-box;
+        border: 1px solid #758691c4;
+        border-radius: 4px;
+        padding: 10px 5px;
+        color: #758691c4;
+        margin-right: 10px;
+        cursor: pointer;
+    }
 
+    .buttonClick {
 
+        background-color: #2fbded;
+        border: none;
+        color: black;
+        font-weight: 600;
+        box-shadow: 1px 2px 1px #7586915e;
 
+    }
+
+    .nums {
+
+        padding: 10px 10px;
+
+    }
+
+    select {
+
+        color: #758691c4;
+    }
 
     textarea:focus,
     input:focus,
@@ -25,42 +55,65 @@
 
     }
 
-    .filter-block {
-
-        display: flex;
-        flex-direction: column;
-        margin: 10px;
-
-        .filter-type {
-
-
-            .title {
-
-                // something
-
-                color: black;
-                margin-bottom: 20px;
-            }
-
-            #equipment {
-
-                margin-top: 20px;
-                border: .5px solid #7586915e;
-                padding: 5px;
-            }
-
-        }
-
-
-
-
-
-
-
-
-
+    input:checked {
+        color: #2fbded;
+        background-color: #2fbded;
     }
 
 
 
+
+    .filter-block {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        text-align: left;
+
+        .filter-house {
+            display: flex;
+
+            >div {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-top: 5px;
+                margin-bottom: 20px;
+
+                >div {
+                    margin-left: 10px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    display: flex;
+                }
+            }
+        }
+
+        .filter-type {
+            .filter-bedrooms {
+
+                margin-top: 10px;
+                margin-bottom: 35px;
+            }
+
+            .title {
+                color: black;
+                display: block;
+            }
+
+            #equipment {
+                margin-top: -5px;
+                border: .5px solid #7586915e;
+                padding: 5px;
+                background-color: #FFFFFF;
+                border-radius: 5px;
+            }
+
+            .filter-block {
+                display: flex;
+                flex-direction: column;
+            }
+
+        }
+
+    }
 }
