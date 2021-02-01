@@ -5,6 +5,7 @@ import './App.scss';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import PropsContainer from './components/PropsContainer/PropsContainer';
+import InfoResults from './components/InfoResults/InfoResults';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
             <SignUpPage />
           </Route>
           <Route path="/dashboard">
-            <DashboardFrame> 
+            <DashboardFrame>
+              <InfoResults> 
+              </InfoResults>
               <PropsContainer />
             </DashboardFrame>
           </Route>
