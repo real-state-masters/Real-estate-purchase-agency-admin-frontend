@@ -16,7 +16,7 @@ const DashboardFrame = ({ children }) => {
         <div>
             <div className="header-container">
                 <div>
-                    <div class="sidenav">
+                    <div className="sidenav">
                         <div>
                             <BiGlasses />
                             <RiDashboardFill />

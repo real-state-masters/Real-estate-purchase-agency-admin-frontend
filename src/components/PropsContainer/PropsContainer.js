@@ -5,6 +5,7 @@ import { Sofa, Bathroom, Square, Sold, Remove } from "./logos";
 const PropsContainer = () => {
   return (
     <div className="props-container">
+      <div className="property">
       <div className="props-left">
         <div className="prop-item">
           <span className="title">Image</span>
@@ -42,6 +43,7 @@ const PropsContainer = () => {
       <div className="prop-item remove-item" style={{ marginRight: "50px" }}>
         <span className="title">Remove</span>
         <Remove></Remove>
+      </div>
       </div>
     </div>
   );
