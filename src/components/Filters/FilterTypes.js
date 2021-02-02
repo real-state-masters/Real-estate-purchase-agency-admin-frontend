@@ -1,4 +1,5 @@
 import { Sofa, Bathroom } from "../PropsContainer/logos";
+import React from "react";
 
 export const MoreFilters = () => {
   return (
@@ -72,7 +73,6 @@ export const ConditionFilters = () => {
             <input type="checkbox" />
             <span>New Homes</span>
           </div>
-
           <div>
             <input type="checkbox" />
             <span>Needs renovation</span>
@@ -90,16 +90,50 @@ export const ConditionFilters = () => {
 };
 
 export const BedroomFilters = () => {
+  const [numRooms, setNumRooms] = React.useState(1);
+
+  const toggleRooms = (event) => {
+    if (event.target.tagName == "BUTTON") {
+      console.log("event triggered");
+      setNumRooms(event.target.dataset.rooms);
+    }
+  };
+
   return (
     <div className="filter-type">
       <span className="title">
         Bedrooms <Sofa></Sofa>
-        <div className="filter-rooms">
-          <button>0 (studio flat)</button>
-          <button className="nums buttonClick">1</button>
-          <button className="nums">2</button>
-          <button className="nums">3</button>
-          <button className="nums">4 or +</button>
+        <div className="filter-rooms" onClick={toggleRooms}>
+          <button
+            data-rooms={0}
+            className={`${numRooms == 0 && "buttonClick"}`}
+          >
+            0 (studio flat)
+          </button>
+          <button
+            data-rooms={1}
+            className={`nums ${numRooms == 1 && "buttonClick"}`}
+          >
+            1
+          </button>
+          <button
+            data-rooms={2}
+            className={`nums ${numRooms == 2 && "buttonClick"}`}
+          >
+            2
+          </button>
+          <button
+            data-rooms={3}
+            className={`nums ${numRooms == 3 && "buttonClick"}`}
+          >
+            3
+          </button>
+          <button
+            data-rooms={4}
+            className={`nums ${numRooms == 4 && "buttonClick"}`}
+          >
+            4 or +
+          </button>
         </div>
       </span>
     </div>
@@ -107,15 +141,36 @@ export const BedroomFilters = () => {
 };
 
 export const BathroomFilters = () => {
+  const [numBathRooms, setNumRooms] = React.useState(1);
+
+  const toggleRooms = (event) => {
+    if (event.target.tagName == "BUTTON") {
+      setNumRooms(event.target.dataset.rooms);
+    }
+  };
   return (
     <div className="filter-type">
       <span className="title">
         Bathrooms <Bathroom></Bathroom>
-        <div className="filter-rooms">
-          <button className="nums buttonClick">1</button>
-          <button className="nums">2</button>
-          <button className="nums">3</button>
-          <button className="nums">4 or +</button>
+        <div className="filter-rooms" onClick={toggleRooms}>
+          <button
+            data-rooms={1}
+            className={`nums ${numBathRooms == 1 && "buttonClick"}`}
+          >
+            1
+          </button>
+          <button
+            data-rooms={2}
+            className={`nums ${numBathRooms == 2 && "buttonClick"}`}
+          >
+            2
+          </button>
+          <button
+            data-rooms={3}
+            className={`nums ${numBathRooms == 3 && "buttonClick"}`}
+          >
+            3 or +
+          </button>
         </div>
       </span>
     </div>

@@ -27,7 +27,7 @@ export default function RangeSlider() {
   };
 
   return (
-    <>
+    <div className="filter-type">
       <span className="title">Price Range ($)</span>
       <div className="price-min">{formatter.format(rangePrice[0])}</div>
       <span className="hypen">-</span>
@@ -47,6 +47,6 @@ export default function RangeSlider() {
           max={100000}
         />
       </div>
-    </>
+    </div>
   );
 }

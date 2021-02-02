@@ -20,17 +20,15 @@ const Filters = () => {
       </div>
       <div className="filter-block">
         <BedroomFilters></BedroomFilters>
-        <div className="filter-type">
-          <RangeSlider></RangeSlider>
-        </div>
+        <RangeSlider></RangeSlider>
       </div>
       <div className="filter-block">
         <BathroomFilters></BathroomFilters>
         <PublicationDateFilter></PublicationDateFilter>
       </div>
       <div className="filter-block">
-        <MoreFilters></MoreFilters>
         <EquipmentFilter></EquipmentFilter>
+        <MoreFilters></MoreFilters>
       </div>
     </div>
   );
