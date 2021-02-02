@@ -1,0 +1,19 @@
+.info-results-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 110px;
+
+    .events-container {
+        display: flex;
+        margin-right: 110px;
+        justify-content: space-between;
+        width: 15%;
+
+        div {
+            svg, span {
+                color: #24C5EF;
+                cursor: pointer;
+            }
+        }
+    }
+}
