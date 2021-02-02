@@ -11,32 +11,46 @@ const useStyles = makeStyles({
   },
 });
 
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2,
+});
+
 function valuetext(value) {
-  return `${value}°C`;
+  return `$ ${value}`;
 }
 
 function RangeSlider() {
   const classes = useStyles();
-  const [value, setValue] = React.useState([2000, 10000]);
+  const [rangePrice, setRangePrice] = React.useState([2000, 10000]);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setRangePrice(newValue);
   };
 
   return (
-    <div className={classes.root}>
-      <Slider
-        value={value}
-        onChange={handleChange}
-        valueLabelDisplay="auto"
-        aria-labelledby="range-slider"
-        getAriaValueText={valuetext}
-        marks
-        step={100}
-        min={1000}
-        max={100000}
-      />
-    </div>
+    <>
+      <span className="title">Price Range ($)</span>
+      <div className="price-min">{formatter.format(rangePrice[0])}</div>
+      <span className="hypen">-</span>
+      <div className="price-max">{formatter.format(rangePrice[1])}</div>
+      <br />
+      <br />
+      <div className={classes.root}>
+        <Slider
+          value={rangePrice}
+          onChange={handleChange}
+          valueLabelDisplay="auto"
+          aria-labelledby="range-slider"
+          getAriaValueText={valuetext}
+          marks
+          step={100}
+          min={1000}
+          max={100000}
+        />
+      </div>
+    </>
   );
 }
 
@@ -93,7 +107,7 @@ const Filters = () => {
         <div className="filter-type">
           <span className="title">
             Bedrooms <Sofa></Sofa>
-            <div className="filter-bedrooms">
+            <div className="filter-rooms">
               <button>0 (studio flat)</button>
               <button className="nums buttonClick">1</button>
               <button className="nums">2</button>
@@ -103,13 +117,6 @@ const Filters = () => {
           </span>
         </div>
         <div className="filter-type">
-          <span className="title">Price Range ($)</span>
-          <div className="price-min">$39000</div>
-          <span className="hypen">-</span>
-          <div className="price-max">$457000</div>
-          <br />
-          <br />
-
           <RangeSlider></RangeSlider>
         </div>
       </div>
@@ -117,10 +124,25 @@ const Filters = () => {
         <div className="filter-type">
           <span className="title">
             Bathrooms <Bathroom></Bathroom>
+            <div className="filter-rooms">
+              <button className="nums buttonClick">1</button>
+              <button className="nums">2</button>
+              <button className="nums">3</button>
+              <button className="nums">4 or +</button>
+            </div>
           </span>
         </div>
         <div className="filter-type">
           <span className="title">Publication date</span>
+
+          <br />
+          <select name="publication-date" id="publication-date">
+            <option selected="selected" value="last 48 hours">
+              last 48 hours
+            </option>
+            <option value="last week">last week</option>
+            <option value="last month">last month</option>
+          </select>
         </div>
       </div>
       <div className="filter-block">
@@ -139,6 +161,33 @@ const Filters = () => {
         </div>
         <div className="filter-type">
           <span className="title">More filters</span>
+          <div className="filter-item">
+            <div>
+              <div>
+                <input type="checkbox" />
+                <span>Flat/apartment</span>
+              </div>
+              <div>
+                <input type="checkbox" /> <span>Duplex</span>
+              </div>
+              <div>
+                <input type="checkbox" /> <span>Duplex</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                <input type="checkbox" /> <span>House</span>
+              </div>
+              <div>
+                <input type="checkbox" /> <span>Penthouse</span>
+              </div>
+            </div>
+            <div>
+              <div>
+                <input type="checkbox" /> <span>House</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
