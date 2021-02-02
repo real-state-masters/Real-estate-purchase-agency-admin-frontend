@@ -28,23 +28,18 @@
     }
 
     .buttonClick {
-
         background-color: #2fbded;
         border: none;
         color: black;
         font-weight: 600;
         box-shadow: 1px 2px 1px #7586915e;
-
     }
 
     .nums {
-
         padding: 10px 10px;
-
     }
 
     select {
-
         color: #758691c4;
     }
 
@@ -59,9 +54,6 @@
         color: #2fbded;
         background-color: #2fbded;
     }
-
-
-
 
     .filter-block {
         display: flex;
@@ -89,6 +81,32 @@
         }
 
         .filter-type {
+
+            .price-min,
+            .price-max {
+                margin-top: 10px;
+                display: inline-block;
+                outline-style: none;
+                background-color: white;
+                box-sizing: border-box;
+                border: 1px solid #758691c4;
+                border-radius: 4px;
+                padding: 5px 25px;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 118.1%;
+                letter-spacing: -0.02em;
+                color: #000000 !important;
+            }
+
+            .hypen {
+
+                color: #000000 !important;
+                margin: 0 10px;
+                font-weight: 700;
+
+            }
+
             .filter-bedrooms {
 
                 margin-top: 10px;

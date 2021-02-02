@@ -1,6 +1,44 @@
-import React from "react";
 import "./Filters.scss";
-import { Sofa, Bathroom, Square, Sold, Remove } from "../PropsContainer/logos";
+
+import { Sofa, Bathroom } from "../PropsContainer/logos";
+import React from "react";
+import Slider from "@material-ui/core/Slider";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    width: 300,
+  },
+});
+
+function valuetext(value) {
+  return `${value}°C`;
+}
+
+function RangeSlider() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState([2000, 10000]);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div className={classes.root}>
+      <Slider
+        value={value}
+        onChange={handleChange}
+        valueLabelDisplay="auto"
+        aria-labelledby="range-slider"
+        getAriaValueText={valuetext}
+        marks
+        step={100}
+        min={1000}
+        max={100000}
+      />
+    </div>
+  );
+}
 
 const Filters = () => {
   return (
@@ -8,7 +46,6 @@ const Filters = () => {
       <div className="filter-block">
         <div className="filter-type">
           <span className="title">Type of home</span>
-
           <div className="filter-item filter-house">
             <div>
               <div>
@@ -23,7 +60,6 @@ const Filters = () => {
               <div>
                 <input type="checkbox" /> <span>House</span>
               </div>
-
               <div>
                 <input type="checkbox" /> <span>Penthouse</span>
               </div>
@@ -32,7 +68,6 @@ const Filters = () => {
         </div>
         <div className="filter-type">
           <span className="title">Condition</span>
-
           <div className="filter-item filter-house">
             <div>
               <div>
@@ -45,7 +80,6 @@ const Filters = () => {
                 <span>Needs renovation</span>
               </div>
             </div>
-
             <div>
               <div>
                 <input type="checkbox" />
@@ -69,9 +103,14 @@ const Filters = () => {
           </span>
         </div>
         <div className="filter-type">
-          <span className="title">Price Range</span>
+          <span className="title">Price Range ($)</span>
+          <div className="price-min">$39000</div>
+          <span className="hypen">-</span>
+          <div className="price-max">$457000</div>
+          <br />
+          <br />
 
-          <input type="range" id="vol" name="vol" min="0" max="50"></input>
+          <RangeSlider></RangeSlider>
         </div>
       </div>
       <div className="filter-block">
