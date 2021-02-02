@@ -1,17 +1,17 @@
 import React from 'react';
 import { Sofa, Bathroom, Square } from "../PropsContainer/logos";
 
-const CharacteristicsContainer = () => {
+const CharacteristicsContainer = ({ rooms, bathrooms, area}) => {
     return (
         <div className="prop-item">
             <span className="title">Characteristics</span>
             <div className="characteristics">
                 <Sofa>hi</Sofa>
-                <span>4</span>
+                <span>{rooms}</span>
                 <Bathroom></Bathroom>
-                <span>1</span>
+                <span>{bathrooms}</span>
                 <Square></Square>
-                <span>120</span>
+                <span>{area}</span>
             </div>
         </div>
     )

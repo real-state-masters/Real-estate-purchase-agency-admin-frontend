@@ -4,11 +4,12 @@ import { AiTwotoneFilter } from 'react-icons/ai'
 
 import './InfoResults.scss';
 
-const InfoResults = () => {
+const InfoResults = ( {properties} ) => {
+
     return (
         <div className="info-results-container">
             <div>
-                <span>4 Results</span>
+                <span>{properties.length} Results</span>
             </div>
             <div className="events-container">
                 <div>

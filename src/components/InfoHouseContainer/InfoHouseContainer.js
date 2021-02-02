@@ -1,16 +1,18 @@
 import React from 'react';
 
-const InfoHouseContainer = () => {
+import './InfoHouseContainer.scss'
+
+const InfoHouseContainer = ( { image, address }) => {
     return (
         <div className="props-left">
             <div className="prop-item">
                 <span className="title">Image</span>
-                <img src="https://picsum.photos/150/95"></img>
+                <img className="img-style" src={image} alt="photohouse"></img>
             </div>
             <div className="prop-item">
                 <span className="title">Address</span>
                 <div className="address">
-                    <span className="street">382 W King Edward Ave</span>
+                    <span className="street">{address}</span>
                     <span className="city-country">Shaugnessy,BC</span>
                 </div>
             </div>

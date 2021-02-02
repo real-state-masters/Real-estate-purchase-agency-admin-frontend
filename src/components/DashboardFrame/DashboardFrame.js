@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {GiMagnifyingGlass} from 'react-icons/gi';
 import {BsFillBellFill} from 'react-icons/bs';
 import {RiArrowDropDownFill} from 'react-icons/ri';
@@ -12,6 +12,17 @@ import './DashboardFrame.scss';
 
 
 const DashboardFrame = ({ children }) => {
+    const [keyword, setKeyword] = useState('')
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        console.log(keyword)
+    }
+
+    const handleChange = event => {
+        setKeyword(event.target.value)
+    }
+
     return (
         <div>
             <div className="header-container">
@@ -25,10 +36,10 @@ const DashboardFrame = ({ children }) => {
                         </div>
                     </div>
                 </div>
-                <div className="search-container">
-                    <input type="text" placeholder="Search"/>
+                <form className="search-container" onSubmit={handleSubmit}>
+                    <input onChange={handleChange} type="text" value={keyword} placeholder="Search"/>
                     <GiMagnifyingGlass />
-                </div>
+                </form>
                 <div className="login-issues-container">
                     <div className="notification-icon-container">
                         <BsFillBellFill />

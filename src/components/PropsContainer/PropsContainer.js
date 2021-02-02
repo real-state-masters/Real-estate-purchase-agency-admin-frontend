@@ -7,13 +7,18 @@ import SoldMarkContainer from "../SoldMarkContainer/SoldMarkContainer";
 import RemoveItemContainer from "../RemoveItemContainer/RemoveItemContainer";
 
 
-const PropsContainer = () => {
+const PropsContainer = ({ property }) => {
   return (
     <div className="props-container">
-      <InfoHouseContainer />
-      <PriceHouseContainer />
-      <CharacteristicsContainer />
-      <SoldMarkContainer />
+      <InfoHouseContainer image={property.images[0]} address={property.location[0].address}/>
+      <PriceHouseContainer price={property.price}/>
+      <CharacteristicsContainer 
+        rooms={property.num_rooms} 
+        bathrooms={property.num_bathrooms} 
+        area={property.area}
+      />
+
+      <SoldMarkContainer status={property.status}/>
       <RemoveItemContainer />
     </div>
   );
