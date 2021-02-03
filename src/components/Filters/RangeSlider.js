@@ -1,0 +1,52 @@
+import Slider from "@material-ui/core/Slider";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  root: {
+    width: 300,
+  },
+});
+
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2,
+});
+
+function valuetext(value) {
+  return `$ ${value}`;
+}
+
+export default function RangeSlider() {
+  const classes = useStyles();
+  const [rangePrice, setRangePrice] = React.useState([2000, 10000]);
+
+  const handleChange = (event, newValue) => {
+    setRangePrice(newValue);
+  };
+
+  return (
+    <div className="filter-type">
+      <span className="title">Price Range ($)</span>
+      <div className="price-min">{formatter.format(rangePrice[0])}</div>
+      <span className="hypen">-</span>
+      <div className="price-max">{formatter.format(rangePrice[1])}</div>
+      <br />
+      <br />
+      <div className={classes.root}>
+        <Slider
+          value={rangePrice}
+          onChange={handleChange}
+          valueLabelDisplay="auto"
+          aria-labelledby="range-slider"
+          getAriaValueText={valuetext}
+          marks
+          step={100}
+          min={1000}
+          max={100000}
+        />
+      </div>
+    </div>
+  );
+}
