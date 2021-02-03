@@ -1,7 +1,7 @@
 import React from "react";
 import { Edit } from "../PropsContainer/logos";
 
-const RemoveItemContainer = () => {
+const EditItemContainer = () => {
   return (
     <div className="prop-item edit-item" style={{ marginRight: "50px" }}>
       <span className="title">Edit</span>
@@ -10,4 +10,4 @@ const RemoveItemContainer = () => {
   );
 };
 
-export default RemoveItemContainer;
+export default EditItemContainer;

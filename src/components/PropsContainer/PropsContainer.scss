@@ -16,7 +16,6 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.11);
     border-radius: 6px;
 
-
     .props-left {
 
         display: flex;
@@ -82,7 +81,6 @@
             }
         }
 
-
         .changeStatusColor {
             color: red;
             font-weight: bold;
@@ -92,6 +90,7 @@
         .remove-item,
         .edit-item {
 
+            cursor: pointer;
             margin-right: 50px !important;
         }
     }
