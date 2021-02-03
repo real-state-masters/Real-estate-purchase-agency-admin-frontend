@@ -87,7 +87,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
 
- <td align="center"><a href="https://github.com/luissastresan"><img src="https://avatars.githubusercontent.com/u/57093575?v=4?s=100" width="100px;" alt=""/><br /><sub><b>LUIS SASTRE SAN EMETERIO</b></sub></a><br /><a href="#infra-luissastresan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=luissastresan" title="Tests">⚠️</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=luissastresan" title="Code">💻</a></td>
 
 <td align="center"><a href="https://bernatferrer627687052.wordpress.com/"><img src="https://avatars.githubusercontent.com/u/25109342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernat Ferrer</b></sub></a><br /><a href="#infra-berni23" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=berni23" title="Tests">⚠️</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=berni23" title="Code">💻</a></td>
   </tr>
