@@ -82,7 +82,15 @@
             }
         }
 
-        .remove-item {
+
+        .changeStatusColor {
+            color: red;
+            font-weight: bold;
+            margin-top: 25px !important;
+        }
+
+        .remove-item,
+        .edit-item {
 
             margin-right: 50px !important;
         }
