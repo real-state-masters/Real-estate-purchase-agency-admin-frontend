@@ -1,7 +1,12 @@
-# Getting Started with Create React App
+#  Frontend admin site of the real state purchase agency
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+
+<hr>
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -81,7 +86,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
+
     <td align="center"><a href="https://github.com/luissastresan"><img src="https://avatars.githubusercontent.com/u/57093575?v=4?s=100" width="100px;" alt=""/><br /><sub><b>LUIS SASTRE SAN EMETERIO</b></sub></a><br /><a href="#infra-luissastresan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=luissastresan" title="Tests">⚠️</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=luissastresan" title="Code">💻</a></td>
+
+    <td align="center"><a href="https://bernatferrer627687052.wordpress.com/"><img src="https://avatars.githubusercontent.com/u/25109342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernat Ferrer</b></sub></a><br /><a href="#infra-berni23" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=berni23" title="Tests">⚠️</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=berni23" title="Code">💻</a></td>
   </tr>
 </table>
 
@@ -91,3 +99,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+
