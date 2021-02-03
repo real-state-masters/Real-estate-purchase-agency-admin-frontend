@@ -11,7 +11,6 @@ const DashboardFrame = ({ children }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(keyword);
   };
 
   const handleChange = (event) => {
