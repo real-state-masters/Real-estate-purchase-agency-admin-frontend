@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "luissastresan",
+      "name": "LUIS SASTRE SAN EMETERIO",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57093575?v=4",
+      "profile": "https://github.com/luissastresan",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "real-estate-purchase-agency-admin-frontend",
+  "projectOwner": "real-state-masters",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
