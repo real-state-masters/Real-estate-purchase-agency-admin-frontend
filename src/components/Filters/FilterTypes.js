@@ -1,5 +1,6 @@
-import { Sofa, Bathroom } from "../PropsContainer/logos";
 import React from "react";
+
+import { Sofa, Bathroom } from "../PropsContainer/logos";
 
 export const MoreFilters = () => {
   return (
@@ -93,49 +94,44 @@ export const BedroomFilters = () => {
   const [numRooms, setNumRooms] = React.useState(1);
 
   const toggleRooms = (event) => {
-    if (event.target.tagName == "BUTTON") {
-      console.log("event triggered");
+    if (event.target.tagName === "BUTTON") {
       setNumRooms(event.target.dataset.rooms);
     }
   };
 
   return (
     <div className="filter-type">
-      <span className="title">
-        Bedrooms <Sofa></Sofa>
-        <div className="filter-rooms" onClick={toggleRooms}>
-          <button
-            data-rooms={0}
-            className={`${numRooms == 0 && "buttonClick"}`}
-          >
-            0 (studio flat)
-          </button>
-          <button
-            data-rooms={1}
-            className={`nums ${numRooms == 1 && "buttonClick"}`}
-          >
-            1
-          </button>
-          <button
-            data-rooms={2}
-            className={`nums ${numRooms == 2 && "buttonClick"}`}
-          >
-            2
-          </button>
-          <button
-            data-rooms={3}
-            className={`nums ${numRooms == 3 && "buttonClick"}`}
-          >
-            3
-          </button>
-          <button
-            data-rooms={4}
-            className={`nums ${numRooms == 4 && "buttonClick"}`}
-          >
-            4 or +
-          </button>
-        </div>
-      </span>
+      <span className="title">Bedrooms</span>
+      <Sofa />
+      <div role="button" className="filter-rooms" onClick={toggleRooms}>
+        <button data-rooms={0} className={`${numRooms == 0 && "buttonClick"}`}>
+          0 (studio flat)
+        </button>
+        <button
+          data-rooms={1}
+          className={`nums ${numRooms == 1 && "buttonClick"}`}
+        >
+          1
+        </button>
+        <button
+          data-rooms={2}
+          className={`nums ${numRooms == 2 && "buttonClick"}`}
+        >
+          2
+        </button>
+        <button
+          data-rooms={3}
+          className={`nums ${numRooms == 3 && "buttonClick"}`}
+        >
+          3
+        </button>
+        <button
+          data-rooms={4}
+          className={`nums ${numRooms == 4 && "buttonClick"}`}
+        >
+          4 or +
+        </button>
+      </div>
     </div>
   );
 };
@@ -144,35 +140,39 @@ export const BathroomFilters = () => {
   const [numBathRooms, setNumRooms] = React.useState(1);
 
   const toggleRooms = (event) => {
-    if (event.target.tagName == "BUTTON") {
+    if (event.target.tagName === "BUTTON") {
       setNumRooms(event.target.dataset.rooms);
     }
   };
   return (
     <div className="filter-type">
-      <span className="title">
-        Bathrooms <Bathroom></Bathroom>
-        <div className="filter-rooms" onClick={toggleRooms}>
-          <button
-            data-rooms={1}
-            className={`nums ${numBathRooms == 1 && "buttonClick"}`}
-          >
-            1
-          </button>
-          <button
-            data-rooms={2}
-            className={`nums ${numBathRooms == 2 && "buttonClick"}`}
-          >
-            2
-          </button>
-          <button
-            data-rooms={3}
-            className={`nums ${numBathRooms == 3 && "buttonClick"}`}
-          >
-            3 or +
-          </button>
-        </div>
-      </span>
+      <span className="title">Bathrooms</span>
+
+      <Bathroom />
+      <div
+        className="filter-rooms"
+        onKeyDown={toggleRooms}
+        onClick={() => toggleRooms()}
+      >
+        <button
+          data-rooms={1}
+          className={`nums ${numBathRooms == 1 && "buttonClick"}`}
+        >
+          1
+        </button>
+        <button
+          data-rooms={2}
+          className={`nums ${numBathRooms == 2 && "buttonClick"}`}
+        >
+          2
+        </button>
+        <button
+          data-rooms={3}
+          className={`nums ${numBathRooms == 3 && "buttonClick"}`}
+        >
+          3 or +
+        </button>
+      </div>
     </div>
   );
 };
@@ -203,9 +203,9 @@ export const EquipmentFilter = () => {
           Indifferent
         </option>
 
-        <option value="indifferent">
-          An option with many many many characters
-        </option>
+        <option value="furnished">Furnished</option>
+
+        <option value="fully-fitted-kitchen">Fully fitted kitchen</option>
       </select>
     </div>
   );
