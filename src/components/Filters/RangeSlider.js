@@ -36,6 +36,7 @@ export default function RangeSlider() {
       <br />
       <div className={classes.root}>
         <Slider
+          name="rangeSlider"
           value={rangePrice}
           onChange={handleChange}
           valueLabelDisplay="auto"

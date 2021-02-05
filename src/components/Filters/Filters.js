@@ -1,5 +1,6 @@
 import "./Filters.scss";
 import React from "react";
+import { connect } from 'react-redux'
 import RangeSlider from "./RangeSlider";
 
 import {
@@ -11,9 +12,69 @@ import {
   PublicationDateFilter,
   EquipmentFilter,
 } from "./FilterTypes";
-const Filters = () => {
+const Filters = ( { properties }) => {
+      console.log(properties)
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+  }
+
+
+  const applyFilters = (inputFilters) => {
+    console.log(properties)
+    const matching = properties.filter(property => {
+      return inputFilters.type.includes(property['type'])
+    })
+    console.log(matching)
+  }
+
+
+
+
+  const filter = () => {
+    const inputFilters = {
+      type: []
+    }
+
+    const inputs = [...document.querySelectorAll('input')]
+    const buttons = [...document.querySelectorAll('button')]
+    const selects = [...document.querySelectorAll('select')]
+
+    // <----- input Object filters
+    inputs.map(input => {
+      if (input.name !== 'searchBox' && input.checked) {
+        switch (input.name) {
+          case 'type':
+            inputFilters.type.push(input.dataset.info)
+          default:
+            break;
+        }
+      }
+    })
+  console.log(inputFilters.type.includes('duplex'))
+  applyFilters(inputFilters)
+
+    // <----- button Object filters
+/*
+    buttons.map(button => {
+      if (button.classList.contains('buttonClick')) {
+        inputFilters[button.name] = parseInt(button.innerText)
+      }
+    })
+
+    // <----- select Object filters
+
+    selects.map(select => {
+      inputFilters[select.name] = select.value
+    })
+
+     console.log(inputFilters)
+  */
+  }
+
   return (
-    <div className="filter-container">
+    <form onSubmit={handleSubmit} className="filter-container">
       <div className="filter-block">
         <HomeFilters></HomeFilters>
         <ConditionFilters></ConditionFilters>
@@ -30,8 +91,15 @@ const Filters = () => {
         <EquipmentFilter></EquipmentFilter>
         <MoreFilters></MoreFilters>
       </div>
-    </div>
+      <button onClick={filter}>Filter</button>
+    </form>
   );
 };
 
-export default Filters;
+const mapStateToProps = state => {
+  return {
+        properties: state.properties
+  }
+}
+
+export default connect(mapStateToProps)(Filters);
