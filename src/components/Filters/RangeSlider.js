@@ -44,7 +44,7 @@ export default function RangeSlider() {
           getAriaValueText={valuetext}
           marks
           step={100}
-          min={1000}
+          min={10000}
           max={100000}
         />
       </div>

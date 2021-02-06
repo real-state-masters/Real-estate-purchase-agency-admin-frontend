@@ -73,17 +73,17 @@ export const ConditionFilters = () => {
       <div className="filter-item filter-house">
         <div>
           <div>
-            <input type="checkbox" name="newHome"/>
+            <input type="checkbox" name="condition" data-info="0"/>
             <span>New Homes</span>
           </div>
           <div>
-            <input type="checkbox" name="NeedsRenovation"/>
+            <input type="checkbox" name="condition" data-info="1"/>
             <span>Needs renovation</span>
           </div>
         </div>
         <div>
           <div>
-            <input type="checkbox" name="GoodCondition"/>
+            <input type="checkbox" name="condition" data-info="2"/>
             <span>Good condition</span>
           </div>
         </div>
@@ -113,25 +113,25 @@ export const BedroomFilters = () => {
           >
             0 (studio flat)
           </button>
-          <button name="rooms1"
+          <button name="bedrooms"
             data-rooms={1}
             className={`nums ${numRooms == 1 && "buttonClick"}`}
           >
             1
           </button>
-          <button name="rooms2"
+          <button name="bedrooms"
             data-rooms={2}
             className={`nums ${numRooms == 2 && "buttonClick"}`}
           >
             2
           </button>
-          <button name="rooms3"
+          <button name="bedrooms"
             data-rooms={3}
             className={`nums ${numRooms == 3 && "buttonClick"}`}
           >
             3
           </button>
-          <button name="moreRooms"
+          <button name="bedrooms"
             data-rooms={4}
             className={`nums ${numRooms == 4 && "buttonClick"}`}
           >
@@ -156,20 +156,23 @@ export const BathroomFilters = () => {
       <span className="title">
         Bathrooms <Bathroom></Bathroom>
         <div className="filter-rooms" onClick={toggleRooms}>
-          <button name="bath1"
+          <button name="bathrooms"
             data-rooms={1}
+            data-bath={1}
             className={`nums ${numBathRooms == 1 && "buttonClick"}`}
           >
             1
           </button>
-          <button name="bath2"
+          <button name="bathrooms"
             data-rooms={2}
+            data-bath={2}
             className={`nums ${numBathRooms == 2 && "buttonClick"}`}
           >
             2
           </button>
-          <button name="moreBath"
+          <button name="bathrooms"
             data-rooms={3}
+            data-bath={3}
             className={`nums ${numBathRooms == 3 && "buttonClick"}`}
           >
             3 or +
