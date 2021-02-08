@@ -14,79 +14,92 @@ const Header = ({addProperties}) => {
     const [keyword, setKeyword] = useState('')
 
 
-    const properties = [
-        {
-            "id": 2342,
-            "location": [
-                {
-                "id": 124234234,
-                "coordinates": [
-                    234234.23,
-                    141234.23
-                ],
-                "address": "my street 23",
-                "context": {},
-                "property_id": 3
-                }
-      ],
-      "type": "duplex",
-      "area": 232,
-      "status": "sold",
-      "sold_at": "yesterday",
-      "bought_by": "3423423",
-      "created_at": "two days ago",
-      "updated_at": "23423423",
-      "price": 10000,
-      "images": [],
-      "description": "asfasdfsfd",
-      "num_bathrooms": 2,
-      "num_rooms": 3,
-      "pets": true,
-      "fully_fitted_kitchen": true,
-      "furnished": true,
-      "condition": 0,
-      "contact": 32423422,
-      "title": "The best one"
-    },
-    {
-      "id": 2343,
-      "location": [
-        {
-          "id": 124234235,
-          "coordinates": [
-            234234.23,
-            141234.23
-          ],
-          "address": "my street 23",
-          "context": {},
-          "property_id": 3
-        }
-      ],
-      "type": "home",
-      "area": 232,
-      "status": "sold",
-      "sold_at": "yesterday",
-      "bought_by": "3423423",
-      "created_at": "two days ago",
-      "updated_at": "23423423",
-      "price": 80000,
-      "images": [],
-      "description": "asfasdfsfd",
-      "num_bathrooms": 2,
-      "num_rooms": 3,
-      "pets": true,
-      "fully_fitted_kitchen": true,
-      "furnished": true,
-      "condition": 0,
-      "contact": 32423422,
-      "title": "The best one"
-    }
-   ]
+//     const properties = [
+//         {
+//             "id": 2342,
+//             "location": [
+//                 {
+//                 "id": 124234234,
+//                 "coordinates": [
+//                     234234.23,
+//                     141234.23
+//                 ],
+//                 "address": "my street 23",
+//                 "context": {},
+//                 "property_id": 3
+//                 }
+//       ],
+//       "type": "duplex",
+//       "area": 232,
+//       "status": "sold",
+//       "sold_at": "yesterday",
+//       "bought_by": "3423423",
+//       "created_at": "two days ago",
+//       "updated_at": "23423423",
+//       "price": 10000,
+//       "images": [],
+//       "description": "asfasdfsfd",
+//       "num_bathrooms": 2,
+//       "num_rooms": 3,
+//       "pets": true,
+//       "fully_fitted_kitchen": true,
+//       "furnished": true,
+//       "condition": 0,
+//       "contact": 32423422,
+//       "title": "The best one"
+//     },
+//     {
+//       "id": 2343,
+//       "location": [
+//         {
+//           "id": 124234235,
+//           "coordinates": [
+//             234234.23,
+//             141234.23
+//           ],
+//           "address": "my street 23",
+//           "context": {},
+//           "property_id": 3
+//         }
+//       ],
+//       "type": "home",
+//       "area": 232,
+//       "status": "sold",
+//       "sold_at": "yesterday",
+//       "bought_by": "3423423",
+//       "created_at": "two days ago",
+//       "updated_at": "23423423",
+//       "price": 80000,
+//       "images": [],
+//       "description": "asfasdfsfd",
+//       "num_bathrooms": 2,
+//       "num_rooms": 3,
+//       "pets": true,
+//       "fully_fitted_kitchen": true,
+//       "furnished": true,
+//       "condition": 0,
+//       "contact": 32423422,
+//       "title": "The best one"
+//     }
+//    ]
+
+
 
     const handleSubmit = event => {
         event.preventDefault()
         console.log(keyword)
-        addProperties(properties)
+        let token = localStorage.getItem('token');
+        console.log(token);
+        fetch('https://real-state-admin.herokuapp.com/api/properties', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        .then(r => r.json())
+        .then(data => console.log(data))
+
+        //addProperties(properties)
     }
 
     const handleChange = event => {

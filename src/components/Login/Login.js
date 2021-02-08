@@ -13,16 +13,50 @@ const Login = () => {
      const [password, setPassword] = React.useState('');
 
 
+     function createForm(email, firebaseUID, token) {
+        var formData = new FormData();
+        formData.append("email", email);
+        formData.append("firebaseUID", firebaseUID);
+        formData.append("token", token);
+        return formData;
+    }
 
-    auth.signInWithEmailAndPassword(email, password).then((cred) => {
-        console.log(cred);
-        auth.currentUser
-        .getIdToken()
-        .then((token) => fetchForm(email, password, token));
-    });
+
+     function fetchForm(email, password, token) {
+         console.log(email)
+         console.log(password)
+         console.log(token)
+         localStorage.setItem('token', token);
+        var formData = createForm(email, password, token);
+        return fetch("https://real-state-admin.herokuapp.com/api/login", {
+        method: "POST",
+        body: formData,
+        })
+        .then((response) => response.json())
+        .then((data) => {
+        console.log(data);
+        // set cur user in redux global state
+        })
+        .catch((error) => console.log(error));
+       }
+
+
+
+
+    function handleSubmit(e){
+        e.preventDefault();
+
+        auth.signInWithEmailAndPassword(email, password).then((cred) => {
+            console.log(cred);
+            auth.currentUser
+            .getIdToken()
+            .then((token) => fetchForm(email, password, token));
+        });
+    
+    }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <h3>Log in</h3>
             <div className="form-group">
                 <label>Email</label>
