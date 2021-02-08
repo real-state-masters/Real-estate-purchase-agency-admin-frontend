@@ -1,6 +1,6 @@
 import "./Filters.scss";
 import React from "react";
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import RangeSlider from "./RangeSlider";
 
 import {
@@ -13,7 +13,8 @@ import {
   EquipmentFilter,
 } from "./FilterTypes";
 const Filters = ( { properties }) => {
-      console.log(properties)
+    const state = useSelector(state => state)
+      console.log(state);
 
   const handleSubmit = (event) => {
     event.preventDefault()

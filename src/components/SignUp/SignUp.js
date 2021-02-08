@@ -3,13 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 import firebase from '../../Firebase/Firebase'
 
 const SignUp = () => {
-     // make auth and firestore references
     const auth = firebase.auth();
-    const db = firebase.firestore();
-    // update firestore settings
-    db.settings({timestampsInSnapshots:true});
+     const db = firebase.firestore();
+     // update firestore settings
+     db.settings({timestampsInSnapshots:true});
 
-    function fetchFormSignUp(formData) {
+     const signUpFetch = function fetchFormSignUp(formData) {
         return fetch("https://real-state-admin.herokuapp.com/api/register", {
         method: "POST",
         body: formData,
@@ -32,63 +31,53 @@ const SignUp = () => {
         return formData;
     }
 
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
-    // signup
-    const signupForm = document.querySelector("#signup-form");
-    signupForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    // get user info
-    const name = signupForm["signup-name"].value;
-    const email = signupForm["signup-email"].value;
-    const password = signupForm["signup-password"].value;
 
-    // sign up the user
-    auth.createUserWithEmailAndPassword(email, password)
-    .then((cred) => {
-        console.log(cred.user);
-        // close the signup modal & reset form
-        //const modal = document.querySelector("#modal-signup");
-        //M.Modal.getInstance(modal).close();
-        signupForm.reset();
-        return cred.user.uid;
-    })
-    .then((firebaseUID) => {
-        auth.currentUser.getIdToken().then((token) => {
-        console.log(token)
-        let formData = createFormSignUp(name, email, /*password,*/ firebaseUID, token);
-        fetchFormSignUp(formData);
-    });
-    // auth.signInWithEmailAndPassword(email, password).then((cred) => {
-    // console.log(cred);
-    // auth.currentUser
-    // .getIdToken()
-    // .then((token) => fetchForm(email, password, token));
-    // });
-});
+    //const signupForm = document.querySelector(".signup-form");
+
+    function handleSubmit (e){
+        e.preventDefault();
+
+         auth.createUserWithEmailAndPassword(email, password)
+         .then((cred) => {
+             console.log(cred.user);
+             // close the signup modal & reset form
+             //const modal = document.querySelector("#modal-signup");
+             //M.Modal.getInstance(modal).close();
+             //signupForm.reset();
+             return cred.user.uid;
+         })
+         .then((firebaseUID) => {
+            auth.currentUser.getIdToken().then((token) => {
+            console.log(token)
+            let formData = createFormSignUp(name, email, /*password,*/ firebaseUID, token);
+            signUpFetch(formData);
+            });    
+        });
+
+    }
 
 
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <h3>Register</h3>
 
-            <div className="form-group">
+            <div className="form-group signup-form">
                 <label>First name</label>
-                <input type="text" className="form-control" placeholder="First name" />
-            </div>
-
-            <div className="form-group">
-                <label>Last name</label>
-                <input type="text" className="form-control" placeholder="Last name" />
+                <input type="text" className="form-control" placeholder="First name" value={name} onChange={({target}) =>setName(target.value)} />
             </div>
 
             <div className="form-group">
                 <label>Email</label>
-                <input type="email" className="form-control" placeholder="Enter email" />
+                <input type="email" className="form-control" placeholder="Enter email" value={email} onChange={({target}) =>setEmail(target.value)}/>
             </div>
 
             <div className="form-group">
                 <label>Password</label>
-                <input type="password" className="form-control" placeholder="Enter password" />
+                <input type="password" className="form-control" placeholder="Enter password" value={password} onChange={({target}) =>setPassword(target.value)}/>
             </div>
 
             <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
