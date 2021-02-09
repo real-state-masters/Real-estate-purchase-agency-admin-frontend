@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { GiMagnifyingGlass } from "react-icons/gi";
-import { BsFillBellFill } from "react-icons/bs";
+import { BsFillBellFill,RiDashboardFill } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
 import { BiGlasses } from "react-icons/bi";
+import { BiGlasses } from "react-icons/bs";
 
 import "./DashboardFrame.scss";
 
