@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import firebase from '../../Firebase/Firebase'
 
@@ -82,7 +83,7 @@ const SignUp = () => {
 
             <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
             <p className="forgot-password text-right">
-                Already registered <a href="#">log in?</a>
+                Already registered <Link to="/sign-in">log in?</Link>
             </p>
         </form>
     )

@@ -5,7 +5,7 @@ import { AiTwotoneFilter } from 'react-icons/ai'
 
 import './InfoResults.scss';
 
-const InfoResults = ( {properties, addFilters, hideFilters, showFilters} ) => {
+const InfoResults = ( {properties, addFilters, showFilters} ) => {
 
     const ShowFilters = () => {
         addFilters(!showFilters)
@@ -32,7 +32,7 @@ const InfoResults = ( {properties, addFilters, hideFilters, showFilters} ) => {
 
 const mapStateToProps = state => {
     return {
-        showFilters: state.showFilters
+        showFilters: state.dashboard.showFilters
     }
 }
 

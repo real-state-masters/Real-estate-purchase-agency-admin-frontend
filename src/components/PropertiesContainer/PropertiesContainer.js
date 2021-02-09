@@ -27,8 +27,8 @@ const PropertiesContainer = ({ properties, showFilters }) => {
 
 const mapStateToProps = (state) => {
     return {
-        properties: state.properties,
-        showFilters: state.showFilters
+        properties: state.dashboard.properties,
+        showFilters: state.dashboard.showFilters
     }
 }
 

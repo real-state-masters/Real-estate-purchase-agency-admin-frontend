@@ -1,9 +1,13 @@
 import React from 'react';
+import { Redirect } from "react-router-dom";
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import firebase from '../../Firebase/Firebase'
 
 
-const Login = () => {
+const Login = ( {connected, addLoginStatus}) => {
+
     const auth = firebase.auth();
      const db = firebase.firestore();
      // update firestore settings
@@ -22,11 +26,8 @@ const Login = () => {
     }
 
 
-     function fetchForm(email, password, token) {
-         console.log(email)
-         console.log(password)
-         console.log(token)
-         localStorage.setItem('token', token);
+    function fetchForm(email, password, token) {
+        localStorage.setItem('token', token);
         var formData = createForm(email, password, token);
         return fetch("https://real-state-admin.herokuapp.com/api/login", {
         method: "POST",
@@ -35,12 +36,13 @@ const Login = () => {
         .then((response) => response.json())
         .then((data) => {
         console.log(data);
+        addLoginStatus(data.connected)
         // set cur user in redux global state
         })
         .catch((error) => console.log(error));
-       }
+    }
 
-
+    
 
 
     function handleSubmit(e){
@@ -53,6 +55,10 @@ const Login = () => {
             .then((token) => fetchForm(email, password, token));
         });
     
+    }
+
+    if (connected === "true") {
+        return <Redirect to='/dashboard' />;
     }
 
     return (
@@ -77,10 +83,28 @@ const Login = () => {
 
             <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
             <p className="forgot-password text-right">
-                Forgot <a href="#">password?</a>
+                Forgot <Link to="/">password?</Link>
             </p>
         </form>
     )
 }
 
-export default Login
+const mapStateToProps = state => {
+    return {
+        connected: state.login.connected
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        addLoginStatus: value => (
+            dispatch({
+                type: 'ADD_LOGIN_STATUS',
+                payload: value
+            })
+        )
+    })
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

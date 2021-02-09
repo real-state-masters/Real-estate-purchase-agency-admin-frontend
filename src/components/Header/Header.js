@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Redirect } from "react-router-dom";
 import {GiMagnifyingGlass} from 'react-icons/gi';
 import {BsFillBellFill} from 'react-icons/bs';
 import {RiArrowDropDownFill} from 'react-icons/ri';
@@ -10,84 +11,10 @@ import {BiGlasses} from 'react-icons/bi';
 
 import './Header.scss'
 
-const Header = ({addProperties}) => {
+const Header = ({connected, addProperties, changeLoginStatus}) => {
     const [keyword, setKeyword] = useState('')
 
-
-//     const properties = [
-//         {
-//             "id": 2342,
-//             "location": [
-//                 {
-//                 "id": 124234234,
-//                 "coordinates": [
-//                     234234.23,
-//                     141234.23
-//                 ],
-//                 "address": "my street 23",
-//                 "context": {},
-//                 "property_id": 3
-//                 }
-//       ],
-//       "type": "duplex",
-//       "area": 232,
-//       "status": "sold",
-//       "sold_at": "yesterday",
-//       "bought_by": "3423423",
-//       "created_at": "two days ago",
-//       "updated_at": "23423423",
-//       "price": 10000,
-//       "images": [],
-//       "description": "asfasdfsfd",
-//       "num_bathrooms": 2,
-//       "num_rooms": 3,
-//       "pets": true,
-//       "fully_fitted_kitchen": true,
-//       "furnished": true,
-//       "condition": 0,
-//       "contact": 32423422,
-//       "title": "The best one"
-//     },
-//     {
-//       "id": 2343,
-//       "location": [
-//         {
-//           "id": 124234235,
-//           "coordinates": [
-//             234234.23,
-//             141234.23
-//           ],
-//           "address": "my street 23",
-//           "context": {},
-//           "property_id": 3
-//         }
-//       ],
-//       "type": "home",
-//       "area": 232,
-//       "status": "sold",
-//       "sold_at": "yesterday",
-//       "bought_by": "3423423",
-//       "created_at": "two days ago",
-//       "updated_at": "23423423",
-//       "price": 80000,
-//       "images": [],
-//       "description": "asfasdfsfd",
-//       "num_bathrooms": 2,
-//       "num_rooms": 3,
-//       "pets": true,
-//       "fully_fitted_kitchen": true,
-//       "furnished": true,
-//       "condition": 0,
-//       "contact": 32423422,
-//       "title": "The best one"
-//     }
-//    ]
-
-
-
-    const handleSubmit = event => {
-        event.preventDefault()
-        console.log(keyword)
+    useEffect(() => {
         let token = localStorage.getItem('token');
         console.log(token);
         fetch('https://real-state-admin.herokuapp.com/api/properties', {
@@ -97,14 +24,26 @@ const Header = ({addProperties}) => {
             }
         })
         .then(r => r.json())
-        .then(data => console.log(data))
+        .then(data => addProperties(data))
+    }, [])
 
-        //addProperties(properties)
+    const logOut = () => {
+        changeLoginStatus("false")
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        console.log(keyword)
     }
 
     const handleChange = event => {
         setKeyword(event.target.value)
     }
+
+    if (connected === "false") {
+        return <Redirect to='/sign-in' />;
+    }
+
 
     return(
         <div className="header-container">
@@ -136,10 +75,20 @@ const Header = ({addProperties}) => {
                             <span>Mary J</span>
                             <RiArrowDropDownFill />
                         </div>
+                        <div className="login-out-container">
+                            <p onClick={logOut}>Login out</p>
+                        </div>
                     </div>
                 </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        connected: state.login.connected
+    }
+}
+
 
 const mapDispatchToProps = (dispatch) => {
     return ({
@@ -147,8 +96,13 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({
             type: 'ADD_PROPERTIES',
             payload: {properties: value}
+        })),
+        changeLoginStatus: value => (
+            dispatch({
+            type: 'CHANGE_LOGIN_STATUS',
+            payload: value
         }))
     })
 }
 
-export default connect(null, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

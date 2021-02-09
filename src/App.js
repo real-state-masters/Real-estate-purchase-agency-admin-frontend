@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import DashboardPage from './pages/DashboardPage';
+import rootReducer from './Reducers/index'
 
 import "./App.scss";
 
@@ -17,30 +18,10 @@ if (process.env.NODE_ENV === "development") {
   middleware.push(logger);
 }
 
-const initialValue = {
-  properties: [],
-  showFilters: false
-}
 
-const reducer = (state=initialValue, action) => {
-  console.log(action)
-  console.log(action.payload)
-
-  switch (action.type) {
-    case 'ADD_PROPERTIES':
-      return {...state, properties: [...state.properties, ...action.payload.properties]}
-    case 'ADD_FILTERS':
-      return {...state, showFilters: action.payload }
-    default:
-      return state
-  }
-}
-
-
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(...middleware)))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middleware)))
 
 function App() {
-
   return (
     <Provider store={store}>
       <Router>

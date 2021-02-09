@@ -96,7 +96,7 @@ export const BedroomFilters = () => {
   const [numRooms, setNumRooms] = React.useState(1);
 
   const toggleRooms = (event) => {
-    if (event.target.tagName == "BUTTON") {
+    if (event.target.tagName === "BUTTON") {
       console.log("event triggered");
       setNumRooms(event.target.dataset.rooms);
     }
@@ -109,31 +109,31 @@ export const BedroomFilters = () => {
         <div className="filter-rooms" onClick={toggleRooms}>
           <button
             data-rooms={0}
-            className={`${numRooms == 0 && "buttonClick"}`}
+            className={`${numRooms === 0 && "buttonClick"}`}
           >
             0 (studio flat)
           </button>
           <button name="bedrooms"
             data-rooms={1}
-            className={`nums ${numRooms == 1 && "buttonClick"}`}
+            className={`nums ${numRooms === 1 && "buttonClick"}`}
           >
             1
           </button>
           <button name="bedrooms"
             data-rooms={2}
-            className={`nums ${numRooms == 2 && "buttonClick"}`}
+            className={`nums ${numRooms === 2 && "buttonClick"}`}
           >
             2
           </button>
           <button name="bedrooms"
             data-rooms={3}
-            className={`nums ${numRooms == 3 && "buttonClick"}`}
+            className={`nums ${numRooms === 3 && "buttonClick"}`}
           >
             3
           </button>
           <button name="bedrooms"
             data-rooms={4}
-            className={`nums ${numRooms == 4 && "buttonClick"}`}
+            className={`nums ${numRooms === 4 && "buttonClick"}`}
           >
             4 or +
           </button>
@@ -147,7 +147,7 @@ export const BathroomFilters = () => {
   const [numBathRooms, setNumRooms] = React.useState(1);
 
   const toggleRooms = (event) => {
-    if (event.target.tagName == "BUTTON") {
+    if (event.target.tagName === "BUTTON") {
       setNumRooms(event.target.dataset.rooms);
     }
   };
@@ -159,21 +159,21 @@ export const BathroomFilters = () => {
           <button name="bathrooms"
             data-rooms={1}
             data-bath={1}
-            className={`nums ${numBathRooms == 1 && "buttonClick"}`}
+            className={`nums ${numBathRooms === 1 && "buttonClick"}`}
           >
             1
           </button>
           <button name="bathrooms"
             data-rooms={2}
             data-bath={2}
-            className={`nums ${numBathRooms == 2 && "buttonClick"}`}
+            className={`nums ${numBathRooms === 2 && "buttonClick"}`}
           >
             2
           </button>
           <button name="bathrooms"
             data-rooms={3}
             data-bath={3}
-            className={`nums ${numBathRooms == 3 && "buttonClick"}`}
+            className={`nums ${numBathRooms === 3 && "buttonClick"}`}
           >
             3 or +
           </button>
