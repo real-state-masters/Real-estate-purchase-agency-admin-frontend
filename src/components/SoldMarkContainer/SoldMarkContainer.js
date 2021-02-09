@@ -4,7 +4,7 @@ import React from 'react'
 import './SoldMarkContainer.scss'
 
 const SoldMarkContainer = ( {status} ) => {
-    if ( status === 'sold' ) {
+    if ( status ) {
         return (
             <div className="prop-item">
                 <span className="title">Mark as sold</span>
