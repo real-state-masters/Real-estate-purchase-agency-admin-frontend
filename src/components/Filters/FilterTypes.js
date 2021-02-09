@@ -8,27 +8,27 @@ export const MoreFilters = () => {
       <div className="filter-item">
         <div>
           <div>
-            <input type="checkbox" />
+            <input type="checkbox" name="PetsAllowed" />
             <span>Pets allowed</span>
           </div>
           <div>
-            <input type="checkbox" /> <span>Air conditioning</span>
+            <input type="checkbox" name="AirConditioning"/> <span>Air conditioning</span>
           </div>
           <div>
-            <input type="checkbox" /> <span>Terrace</span>
-          </div>
-        </div>
-        <div>
-          <div>
-            <input type="checkbox" /> <span>Lift</span>
-          </div>
-          <div>
-            <input type="checkbox" /> <span>Swimming pool</span>
+            <input type="checkbox" name="Terrace"/> <span>Terrace</span>
           </div>
         </div>
         <div>
           <div>
-            <input type="checkbox" /> <span>Garden</span>
+            <input type="checkbox" name="Lift"/> <span>Lift</span>
+          </div>
+          <div>
+            <input type="checkbox" name="SwimmingPool"/> <span>Swimming pool</span>
+          </div>
+        </div>
+        <div>
+          <div>
+            <input type="checkbox" name="Garden"/> <span>Garden</span>
           </div>
         </div>
       </div>
@@ -43,19 +43,22 @@ export const HomeFilters = () => {
       <div className="filter-item filter-house">
         <div>
           <div>
-            <input type="checkbox" />
+            <input type="checkbox" name="type" data-info="flat"/>
             <span>Flat/apartment</span>
           </div>
           <div>
-            <input type="checkbox" /> <span>Duplex</span>
+            <input type="checkbox" name="type" data-info="duplex"/> 
+            <span>Duplex</span>
           </div>
         </div>
         <div>
           <div>
-            <input type="checkbox" /> <span>House</span>
+            <input type="checkbox" name="type" data-info="home"/> 
+            <span>House</span>
           </div>
           <div>
-            <input type="checkbox" /> <span>Penthouse</span>
+            <input type="checkbox" name="type" data-info="penthouse"/> 
+            <span>Penthouse</span>
           </div>
         </div>
       </div>
@@ -70,17 +73,17 @@ export const ConditionFilters = () => {
       <div className="filter-item filter-house">
         <div>
           <div>
-            <input type="checkbox" />
+            <input type="checkbox" name="condition" data-info="0"/>
             <span>New Homes</span>
           </div>
           <div>
-            <input type="checkbox" />
+            <input type="checkbox" name="condition" data-info="1"/>
             <span>Needs renovation</span>
           </div>
         </div>
         <div>
           <div>
-            <input type="checkbox" />
+            <input type="checkbox" name="condition" data-info="2"/>
             <span>Good condition</span>
           </div>
         </div>
@@ -93,7 +96,7 @@ export const BedroomFilters = () => {
   const [numRooms, setNumRooms] = React.useState(1);
 
   const toggleRooms = (event) => {
-    if (event.target.tagName == "BUTTON") {
+    if (event.target.tagName === "BUTTON") {
       console.log("event triggered");
       setNumRooms(event.target.dataset.rooms);
     }
@@ -106,31 +109,31 @@ export const BedroomFilters = () => {
         <div className="filter-rooms" onClick={toggleRooms}>
           <button
             data-rooms={0}
-            className={`${numRooms == 0 && "buttonClick"}`}
+            className={`${numRooms === 0 && "buttonClick"}`}
           >
             0 (studio flat)
           </button>
-          <button
+          <button name="bedrooms"
             data-rooms={1}
-            className={`nums ${numRooms == 1 && "buttonClick"}`}
+            className={`nums ${numRooms === 1 && "buttonClick"}`}
           >
             1
           </button>
-          <button
+          <button name="bedrooms"
             data-rooms={2}
-            className={`nums ${numRooms == 2 && "buttonClick"}`}
+            className={`nums ${numRooms === 2 && "buttonClick"}`}
           >
             2
           </button>
-          <button
+          <button name="bedrooms"
             data-rooms={3}
-            className={`nums ${numRooms == 3 && "buttonClick"}`}
+            className={`nums ${numRooms === 3 && "buttonClick"}`}
           >
             3
           </button>
-          <button
+          <button name="bedrooms"
             data-rooms={4}
-            className={`nums ${numRooms == 4 && "buttonClick"}`}
+            className={`nums ${numRooms === 4 && "buttonClick"}`}
           >
             4 or +
           </button>
@@ -144,7 +147,7 @@ export const BathroomFilters = () => {
   const [numBathRooms, setNumRooms] = React.useState(1);
 
   const toggleRooms = (event) => {
-    if (event.target.tagName == "BUTTON") {
+    if (event.target.tagName === "BUTTON") {
       setNumRooms(event.target.dataset.rooms);
     }
   };
@@ -153,21 +156,24 @@ export const BathroomFilters = () => {
       <span className="title">
         Bathrooms <Bathroom></Bathroom>
         <div className="filter-rooms" onClick={toggleRooms}>
-          <button
+          <button name="bathrooms"
             data-rooms={1}
-            className={`nums ${numBathRooms == 1 && "buttonClick"}`}
+            data-bath={1}
+            className={`nums ${numBathRooms === 1 && "buttonClick"}`}
           >
             1
           </button>
-          <button
+          <button name="bathrooms"
             data-rooms={2}
-            className={`nums ${numBathRooms == 2 && "buttonClick"}`}
+            data-bath={2}
+            className={`nums ${numBathRooms === 2 && "buttonClick"}`}
           >
             2
           </button>
-          <button
+          <button name="bathrooms"
             data-rooms={3}
-            className={`nums ${numBathRooms == 3 && "buttonClick"}`}
+            data-bath={3}
+            className={`nums ${numBathRooms === 3 && "buttonClick"}`}
           >
             3 or +
           </button>
@@ -182,7 +188,7 @@ export const PublicationDateFilter = () => {
     <div className="filter-type">
       <span className="title">Publication date</span>
       <br />
-      <select name="publication-date" id="publication-date">
+      <select name="publicationDate" id="publication-date">
         <option selected="selected" value="last 48 hours">
           last 48 hours
         </option>
@@ -203,8 +209,12 @@ export const EquipmentFilter = () => {
           Indifferent
         </option>
 
-        <option value="indifferent">
-          An option with many many many characters
+        <option value="fully fitted kitchen">
+          Fully fitted kitchen
+        </option>
+
+        <option value="furnished">
+          Furnished
         </option>
       </select>
     </div>

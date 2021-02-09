@@ -1,5 +1,42 @@
-# Getting Started with Create React App
+#  Frontend admin site of the real state purchase agency
 
+## Contributors ✨
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+
+
+<td align="center"><a href="https://github.com/berni23"><img src="https://avatars.githubusercontent.com/u/25109342?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bernat Ferrer</b></sub></a><br /><a href="#infra-berni23" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=berni23" title="Tests">⚠️</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=berni23" title="Code">💻</a></td>
+
+
+<td align="center"><a href='https://github.com/luissastresan'><img src="https://avatars.githubusercontent.com/u/57093575?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Luis sastre</b></sub></a><br /><a href="#infra-luissastresan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=luissastresan" title="Tests">⚠️</a> <a href="https://github.com/real-state-masters/real-estate-purchase-agency-admin-frontend/commits?author=luissastresan" title="Code">💻</a></td>
+  </tr>
+</table>
+
+
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+<hr>
+<br>
+
+Interactive admin site webpage  for handling real state data. The webpage is connected with an api via firebase and token authentification, which validates
+if the user is indeed an administrator and both the front and back-end of the site share that token. This allows the administrators
+ to create, read, update and delete data ( CRUD)
+ 
+ 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -39,32 +76,8 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
