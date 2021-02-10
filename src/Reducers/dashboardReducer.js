@@ -11,11 +11,16 @@ const dashboardReducer = (state = initialValue, action) => {
             console.log(state)
             console.log(action)
             console.log(action.payload)
-            return {...state, properties: [...state.properties, ...action.payload.properties]}}
+            return {...state, properties: [...action.payload.properties]}}
         case 'ADD_FILTERS':
             return {...state, showFilters: action.payload }
         case 'ADD_EDIT_CARD':
             return {...state, showEdit: action.payload }
+        case 'GET_ALL_PROPERTIES': { 
+            console.log(state)
+            console.log(action)
+            console.log(action.payload)
+            return {...state, properties: [...action.payload.properties]}}
         default:
             return state
     }

@@ -1,12 +1,12 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import "./PropsContainer.scss";
-import InfoHouseContainer from '../InfoHouseContainer/InfoHouseContainer'
+import InfoHouseContainer from "../InfoHouseContainer/InfoHouseContainer";
 import PriceHouseContainer from "../PriceHouseContainer/PriceHouseContainer";
 import CharacteristicsContainer from "../CharacteristicsContainer/CharacteristicsContainer";
 import SoldMarkContainer from "../SoldMarkContainer/SoldMarkContainer";
 import RemoveItemContainer from "../RemoveItemContainer/RemoveItemContainer";
-
+import EditItemContainer from "../EditItemContainer/EditItemContainer";
 
 const PropsContainer = ({ property }) => {
 
@@ -30,7 +30,10 @@ const PropsContainer = ({ property }) => {
         />
 
         <SoldMarkContainer status={property.status}/>
-        <RemoveItemContainer />
+        <div className="edit-remove">
+          <EditItemContainer />
+          <RemoveItemContainer />
+        </div>
       </div>
   );
 };

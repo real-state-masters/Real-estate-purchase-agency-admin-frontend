@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 //import { Sold } from "../PropsContainer/logos";
 
-import './SoldMarkContainer.scss'
+// import './SoldMarkContainer.scss'
 
 const SoldMarkContainer = ( {status} ) => {
     if ( status ) {
@@ -21,4 +21,4 @@ const SoldMarkContainer = ( {status} ) => {
     }
 }
 
-export default SoldMarkContainer
+export default SoldMarkContainer;
