@@ -2,30 +2,21 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from "react-router-dom";
 import {GiMagnifyingGlass} from 'react-icons/gi';
-import {BsFillBellFill} from 'react-icons/bs';
-import {RiArrowDropDownFill} from 'react-icons/ri';
-import {RiDashboardFill} from 'react-icons/ri';
-import {BsHouseDoor} from 'react-icons/bs';
+import {BsFillBellFill, BsHouseDoor} from 'react-icons/bs';
+import {RiDashboardFill, RiArrowDropDownFill} from 'react-icons/ri';
 import {FiSettings} from 'react-icons/fi';
 import {BiGlasses} from 'react-icons/bi';
+import getProperties from '../../services/getProperties'
+import { URI, getToken } from '../../utils/constants'
 
 import './Header.scss'
 
-const Header = ({connected, addProperties, changeLoginStatus}) => {
+const Header = ({connected, addProperties, changeLoginStatus, showAllProperties}) => {
     const [keyword, setKeyword] = useState('')
 
-    useEffect(() => {
-        let token = localStorage.getItem('token');
-        console.log(token);
-        fetch('https://real-state-admin.herokuapp.com/api/properties', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        })
-        .then(r => r.json())
-        .then(data => addProperties(data))
-    }, [])
+    const getAllProperties = () => {
+         getProperties(URI, getToken()).then(res => showAllProperties(res))
+    }
 
     const logOut = () => {
         changeLoginStatus("false")
@@ -34,6 +25,7 @@ const Header = ({connected, addProperties, changeLoginStatus}) => {
     const handleSubmit = event => {
         event.preventDefault()
         console.log(keyword)
+        getProperties(`${URI}/location/${keyword}`, getToken()).then(res => addProperties(res.data))
     }
 
     const handleChange = event => {
@@ -58,6 +50,7 @@ const Header = ({connected, addProperties, changeLoginStatus}) => {
                 </div>
                 </div>
                     <form className="search-container" onSubmit={handleSubmit}>
+                        <div onClick={getAllProperties}><span>All</span></div>
                         <input onChange={handleChange} type="text" value={keyword} name="searchBox" placeholder="Search"/>
                         <GiMagnifyingGlass />
                     </form>
@@ -92,11 +85,18 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
+        showAllProperties: value => (
+            dispatch({
+            type: 'GET_ALL_PROPERTIES',
+            payload: {properties: value}
+        })),
+
         addProperties: value => (
             dispatch({
             type: 'ADD_PROPERTIES',
             payload: {properties: value}
         })),
+
         changeLoginStatus: value => (
             dispatch({
             type: 'CHANGE_LOGIN_STATUS',

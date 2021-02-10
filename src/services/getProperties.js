@@ -1,8 +1,10 @@
-export default function getProperties() {
-    return fetch('http://localhost:3000/properties')
+export default function getProperties(URI, token) {
+    return fetch(URI, {
+        method: 'GET',
+        headers: {
+        'Authorization': 'Bearer ' + token
+    }})
     .then(res => res.json())
-    .then(res => {
-        const { properties } = res
-        return { properties }
-    })
 }
+
+

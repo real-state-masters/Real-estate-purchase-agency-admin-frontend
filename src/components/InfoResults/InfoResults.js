@@ -5,10 +5,14 @@ import { AiTwotoneFilter } from 'react-icons/ai'
 
 import './InfoResults.scss';
 
-const InfoResults = ( {properties, addFilters, showFilters} ) => {
+const InfoResults = ( {properties, addFilters, addEditCard, showFilters, showEdit } ) => {
 
     const ShowFilters = () => {
         addFilters(!showFilters)
+    }
+
+    const showEditCard = () => {
+        addEditCard(!showEdit)
     }
 
     return (
@@ -17,8 +21,8 @@ const InfoResults = ( {properties, addFilters, showFilters} ) => {
                 <span>{properties.length} Results</span>
             </div>
             <div className="events-container">
-                <div>
-                    <BiPlus />
+                <div onClick={showEditCard}>
+                    <BiPlus/>
                     <span>Add New</span>
                 </div>
                 <div onClick={ShowFilters}>
@@ -32,7 +36,8 @@ const InfoResults = ( {properties, addFilters, showFilters} ) => {
 
 const mapStateToProps = state => {
     return {
-        showFilters: state.dashboard.showFilters
+        showFilters: state.dashboard.showFilters,
+        showEdit: state.dashboard.showEdit
     }
 }
 
@@ -41,6 +46,13 @@ const mapDispatchToProps = (dispatch) => {
         addFilters: value => {
             dispatch({
                 type: 'ADD_FILTERS',
+                payload: value
+            })
+        },
+
+        addEditCard: value => {
+            dispatch({
+                type: 'ADD_EDIT_CARD',
                 payload: value
             })
         }

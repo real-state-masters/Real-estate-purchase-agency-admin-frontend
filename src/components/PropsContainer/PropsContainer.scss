@@ -91,8 +91,14 @@
         .edit-item {
 
             cursor: pointer;
-            margin-right: 50px !important;
+            /*margin-right: 50px !important;*/
         }
+
     }
 
+
+}
+
+.edit-remove {
+    display:flex;
 }
