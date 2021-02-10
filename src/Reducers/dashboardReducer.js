@@ -1,6 +1,7 @@
 const initialValue = {
   properties: [],
-  showFilters: false
+  showFilters: false,
+  showEdit: false
 }
 
 const dashboardReducer = (state = initialValue, action) => {
@@ -13,6 +14,8 @@ const dashboardReducer = (state = initialValue, action) => {
             return {...state, properties: [...state.properties, ...action.payload.properties]}}
         case 'ADD_FILTERS':
             return {...state, showFilters: action.payload }
+        case 'ADD_EDIT_CARD':
+            return {...state, showEdit: action.payload }
         default:
             return state
     }

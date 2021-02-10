@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import "./PropsContainer.scss";
 import InfoHouseContainer from '../InfoHouseContainer/InfoHouseContainer'
 import PriceHouseContainer from "../PriceHouseContainer/PriceHouseContainer";
@@ -8,8 +9,18 @@ import RemoveItemContainer from "../RemoveItemContainer/RemoveItemContainer";
 
 
 const PropsContainer = ({ property }) => {
+
+  const changeDetailsPage = () => {
+    console.log('hhola')
+    console.log(property._id)
+    
+    if (typeof property._id !== 'undefined') {
+        return <Redirect to='/details' />
+    }
+  }
+
   return (
-      <div className="props-container">
+      <div className="props-container" onClick={changeDetailsPage}>
         <InfoHouseContainer image={property.images[0]} address={property.location.address}/>
         <PriceHouseContainer price={property.price}/>
         <CharacteristicsContainer 

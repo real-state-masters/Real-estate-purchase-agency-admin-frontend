@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import DashboardPage from './pages/DashboardPage';
+import DetailsPropertyPage from './pages/DetailsPropertyPage';
 import rootReducer from './Reducers/index'
 
 import "./App.scss";
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route path="/dashboard">
               <DashboardPage />
+            </Route>
+            <Route path="/details">
+              <DetailsPropertyPage />
             </Route>
           </Switch>
         </div>
