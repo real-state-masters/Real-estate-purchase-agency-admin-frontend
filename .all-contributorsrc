@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "berni23",
+      "name": "Bernat Ferrer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25109342?v=4",
+      "profile": "https://bernatferrer627687052.wordpress.com/",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "real-estate-purchase-agency-admin-frontend",
+  "projectOwner": "real-state-masters",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

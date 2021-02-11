@@ -1,11 +1,11 @@
 import React from 'react'
-
 import NavBarLogin from '../components/NavBarLogin/NavBarLogin'
 import Login from '../components/Login/Login';
 
 import './Login.scss'
 
-const LoginPage = () => {
+const LoginPage = ({connected}) => {
+
     return (
         <div className="outer">
             <div className="inner">
@@ -13,8 +13,6 @@ const LoginPage = () => {
                 <Login />
             </div>
         </div>
-
-
     )
 }
 

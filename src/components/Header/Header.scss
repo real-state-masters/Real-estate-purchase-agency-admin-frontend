@@ -41,6 +41,21 @@
     /*margin-top: 25px;*/
     display: flex;
     justify-content: center;
+    div {
+        float: left;
+        width: 10%;
+        padding: 5px;
+        background: #FC9543;
+        color: white;
+        border-left: none;
+        cursor: pointer;
+
+        span{
+            font-size: 13px;
+            ont-weight: bold;
+        }
+    }
+
    input {
         padding: 7px;
         font-size: 14px;
@@ -97,4 +112,12 @@
     border-radius: 50%;
     display: inline-block;
     border: 1px solid black;
+}
+
+.login-out-container {
+    p {
+        cursor:pointer;
+        font-weight: bold;
+        margin-left: 30px;
+    }
 }

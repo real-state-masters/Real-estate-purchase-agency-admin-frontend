@@ -1,10 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { BiPlus } from 'react-icons/bi'
 import { AiTwotoneFilter } from 'react-icons/ai'
 
 import './InfoResults.scss';
 
-const InfoResults = ( {properties} ) => {
+const InfoResults = ( {properties, addFilters, addEditCard, showFilters, showEdit } ) => {
+
+    const ShowFilters = () => {
+        addFilters(!showFilters)
+    }
+
+    const showEditCard = () => {
+        addEditCard(!showEdit)
+    }
 
     return (
         <div className="info-results-container">
@@ -12,11 +21,11 @@ const InfoResults = ( {properties} ) => {
                 <span>{properties.length} Results</span>
             </div>
             <div className="events-container">
-                <div>
-                    <BiPlus />
+                <div onClick={showEditCard}>
+                    <BiPlus/>
                     <span>Add New</span>
                 </div>
-                <div>
+                <div onClick={ShowFilters}>
                     <AiTwotoneFilter />
                     <span>Filters</span>
                 </div>
@@ -25,4 +34,30 @@ const InfoResults = ( {properties} ) => {
     )
 }
 
-export default InfoResults
+const mapStateToProps = state => {
+    return {
+        showFilters: state.dashboard.showFilters,
+        showEdit: state.dashboard.showEdit
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addFilters: value => {
+            dispatch({
+                type: 'ADD_FILTERS',
+                payload: value
+            })
+        },
+
+        addEditCard: value => {
+            dispatch({
+                type: 'ADD_EDIT_CARD',
+                payload: value
+            })
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(InfoResults)

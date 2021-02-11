@@ -36,6 +36,7 @@ export default function RangeSlider() {
       <br />
       <div className={classes.root}>
         <Slider
+          name="rangeSlider"
           value={rangePrice}
           onChange={handleChange}
           valueLabelDisplay="auto"
@@ -43,7 +44,7 @@ export default function RangeSlider() {
           getAriaValueText={valuetext}
           marks
           step={100}
-          min={1000}
+          min={10000}
           max={100000}
         />
       </div>
