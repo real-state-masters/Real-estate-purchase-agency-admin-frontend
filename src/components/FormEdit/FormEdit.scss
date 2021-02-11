@@ -1,12 +1,12 @@
 .form-container {
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    // flex-direction: column;
+
 
     form {
         display: flex;
         flex-direction: column;
-        width: 80%;
+        min-width: 50%;
 
         div {
             display: flex;
@@ -29,7 +29,16 @@
 }
 
 .map-container {
-    height: 350px;
-    width: 350px;
+    margin-top: 30px;
+    height: 379px;
+    width: 379px;
+    margin-left: 50px;
     background-color: black;
+}
+
+
+
+.modal-dialog {
+    max-width: 800px !important;
+    margin: 1.75rem auto;
 }

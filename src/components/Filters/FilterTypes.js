@@ -214,7 +214,3 @@ export const EquipmentFilter = () => {
     </div>
   );
 };
-
-const inputs = [];
-
-inputs.forEach();

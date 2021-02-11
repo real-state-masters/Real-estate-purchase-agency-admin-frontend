@@ -1,69 +1,85 @@
-import React from 'react'
-import { concatAddress, uriMapbox } from '../../utils/constants'
-import FormEdit from '../FormEdit/FormEdit'
-import AddProperty from '../AddProperty/AddProperty'
-
-
-import './EditCard.scss'
+import React from "react";
+import { concatAddress, uriMapbox } from "../../utils/constants";
+import FormEdit from "../FormEdit/FormEdit";
+import AddProperty from "../AddProperty/AddProperty";
+import { Modal, Button } from "react-bootstrap";
+import message from "../../utils/message";
 
 const EditCard = () => {
-    const [nextStep, setNextStep] = React.useState(false)
-    const [location, setLocation] = React.useState({})
-    const [step, NextStep] = React.useState(0)
+  const [nextStep, setNextStep] = React.useState(false);
+  const [location, setLocation] = React.useState({});
+  const [step, NextStep] = React.useState(0);
 
-    const validateAddress = (e) => {
-        e.preventDefault()
-        const inputs = [...document.querySelectorAll('.form-container input')]
-        const adressParams = {}
+  React.useEffect(setDummyAddress);
 
-        console.log(inputs)
-        inputs.forEach((input) => {
-            adressParams[input.getAttribute('name')] = input.value;
-        });
+  const validateAddress = (e) => {
+    e.preventDefault();
+    const inputs = [...document.querySelectorAll(".form-container input")];
+    const adressParams = {};
+    inputs.forEach((input) => {
+      adressParams[input.getAttribute("name")] = input.value;
+    });
 
-        getAddress(adressParams);
-    }
+    getAddress(adressParams);
+  };
 
-    const getAddress = async (adressParams) => {
-        let address = concatAddress(adressParams)
-        let result = await fetch(uriMapbox(address))
+  const getAddress = async (adressParams) => {
+    let address = concatAddress(adressParams);
+    let result = await fetch(uriMapbox(address));
 
-        if(!result.ok) {
-            return {status: "failed"}
-        }
+    if (!result.ok) message("address not found", 400);
+    result = await result.json();
+    let location = saveLocation(result, address);
+    setLocation(location);
+    setNextStep(true);
+    message("address successfully entered", 200);
+  };
 
-        result = await result.json()
+  const [show, setShow] = React.useState(true);
+  const handleClose = () => setShow(false);
 
-        console.log(result)
+  return (
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Property</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {step === 0 ? (
+            <FormEdit
+              validateAddress={validateAddress}
+              style={{ display: "flex" }}
+            />
+          ) : (
+            <AddProperty />
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          {nextStep && <Button>Next Step</Button>}
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
+};
 
-        let location = {
-            "id": result.features[0].id,
-            "coordinates": result.features[0].geometry.coordinates,
-            "address": address,
-            "context": result.features[1].context[0],
-            "property_id": result.features[0].id
-        }
+const saveLocation = (result, address) => {
+  return {
+    id: result.features[0].id,
+    coordinates: result.features[0].geometry.coordinates,
+    address: address,
+    context: result.features[1].context[0],
+    property_id: result.features[0].id,
+  };
+};
 
-        setLocation(location)
-
-        setNextStep(true)
-    }
-
-    return (
-        <div className="edit-card-container">
-            <h1>Edit Property</h1>
-            <div>
-                {
-                    step === 0 ? <FormEdit validateAddress={validateAddress}/> : <AddProperty />
-                }
-                
-            </div>
-
-            {
-                nextStep && <button>Next Step</button> 
-            }
-        </div>
-    )
-}
-
-export default EditCard
+const setDummyAddress = () => {
+  document.getElementsByName("street")[0].value = "calle aragon";
+  document.getElementsByName("number")[0].value = "50";
+  document.getElementsByName("city")[0].value = "Barcelona";
+  document.getElementsByName("state")[0].value = "Cataluña";
+  document.getElementsByName("country")[0].value = "España";
+};
+export default EditCard;
