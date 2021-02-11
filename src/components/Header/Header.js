@@ -69,7 +69,7 @@ const Header = ({connected, addProperties, changeLoginStatus, showAllProperties}
                             <RiArrowDropDownFill />
                         </div>
                         <div className="login-out-container">
-                            <p onClick={logOut}>Login out</p>
+                            <p onClick={logOut}>Log out</p>
                         </div>
                     </div>
                 </div>

@@ -13,8 +13,8 @@ const Login = ( {connected, addLoginStatus}) => {
      // update firestore settings
      db.settings({timestampsInSnapshots:true});
 
-     const [email, setEmail] = React.useState('');
-     const [password, setPassword] = React.useState('');
+     const [email, setEmail] = React.useState('cangrejo@gmail.com');
+     const [password, setPassword] = React.useState('12345678');
 
 
      function createForm(email, firebaseUID, token) {
