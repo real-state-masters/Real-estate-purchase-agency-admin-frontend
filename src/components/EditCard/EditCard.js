@@ -1,14 +1,15 @@
 import React from 'react'
-import { GoMail } from 'react-icons/go'
 import { concatAddress, uriMapbox } from '../../utils/constants'
+import FormEdit from '../FormEdit/FormEdit'
+import AddProperty from '../AddProperty/AddProperty'
 
 
 import './EditCard.scss'
 
 const EditCard = () => {
-
-    const [location, setLocation] = React.useState({})
     const [nextStep, setNextStep] = React.useState(false)
+    const [location, setLocation] = React.useState({})
+    const [step, NextStep] = React.useState(0)
 
     const validateAddress = (e) => {
         e.preventDefault()
@@ -44,6 +45,7 @@ const EditCard = () => {
         }
 
         setLocation(location)
+
         setNextStep(true)
     }
 
@@ -51,53 +53,15 @@ const EditCard = () => {
         <div className="edit-card-container">
             <h1>Edit Property</h1>
             <div>
-                <div className="form-container">
-                    <form>
-                        <div>
-                            <label for="">
-                                <GoMail />
-                                Street
-                            </label>
-                            <input type="text" id="" name="street" placeholder="street"/>
-                        </div>
-                        <div>
-                            <label for="">
-                                <GoMail />
-                                Number
-                            </label>
-                            <input type="text" id="" name="number" placeholder="number"/>
-                        </div>
-                        <div>
-                            <label for="">
-                                <GoMail />
-                                City
-                            </label>
-                            <input type="text" id="" name="city" placeholder="city"/>
-                        </div>
-                        <div>
-                            <label for="">
-                                <GoMail />
-                                State
-                            </label>
-                            <input type="text" id="" name="state" placeholder="state"/>
-                        </div>
-                        <div>
-                            <label for="">
-                                <GoMail />
-                                Country
-                            </label>
-                            <input type="text" id="" name="country" placeholder="country"/>
-                        </div>
-                        <div>
-                            <input onClick={validateAddress} type="submit" value="Search"/>
-                            {
-                                nextStep && <button>Next Step</button> 
-                            }
-                        </div>
-                    </form>
-                </div>
-                <div className="map-container"></div>
+                {
+                    step === 0 ? <FormEdit validateAddress={validateAddress}/> : <AddProperty />
+                }
+                
             </div>
+
+            {
+                nextStep && <button>Next Step</button> 
+            }
         </div>
     )
 }
