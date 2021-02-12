@@ -41,6 +41,7 @@ const EditCard = (email) => {
     newProperty["description"] = document.querySelector(
       ".addContainer textarea"
     );
+    newProperty["email"] = document.getElementsByName("email")[0];
     newProperty["area"] = document.getElementsByName("area")[0];
     newProperty["price"] = document.getElementsByName("price")[0];
     newProperty["title"] = document.getElementsByName("title")[0];
@@ -48,6 +49,8 @@ const EditCard = (email) => {
 
     const image = document.getElementsByClassName("image")[0];
     if (image) newProperty["image"] = image.files[0];
+
+    console.log(newProperty)
   };
 
   const getAddress = async (adressParams) => {

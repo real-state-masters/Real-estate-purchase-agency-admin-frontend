@@ -1,15 +1,20 @@
 import React from 'react';
+import {connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import firebase from '../../Firebase/Firebase'
 
-const SignUp = () => {
-    const auth = firebase.auth();
-     const db = firebase.firestore();
-     // update firestore settings
-     db.settings({timestampsInSnapshots:true});
+const SignUp = ({saveEmail}) => {
+    const [name, setName] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
-     const signUpFetch = function fetchFormSignUp(formData) {
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    // update firestore settings
+    db.settings({timestampsInSnapshots:true});
+
+    const signUpFetch = function fetchFormSignUp(formData) {
         return fetch("https://real-state-admin.herokuapp.com/api/register", {
         method: "POST",
         body: formData,
@@ -32,10 +37,6 @@ const SignUp = () => {
         return formData;
     }
 
-    const [name, setName] = React.useState('');
-    const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
-
 
     //const signupForm = document.querySelector(".signup-form");
 
@@ -45,11 +46,8 @@ const SignUp = () => {
          auth.createUserWithEmailAndPassword(email, password)
          .then((cred) => {
              console.log(cred.user);
-             // close the signup modal & reset form
-             //const modal = document.querySelector("#modal-signup");
-             //M.Modal.getInstance(modal).close();
-             //signupForm.reset();
              return cred.user.uid;
+             saveEmail('whfwirhbfiqw')
          })
          .then((firebaseUID) => {
             auth.currentUser.getIdToken().then((token) => {
@@ -89,4 +87,15 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+const mapDispatchToProps = (value) => {
+    return {
+        saveEmail: (dispatch) => {
+            dispatch({
+                type: "SAVE_EMAIL",
+                payload: value
+            });
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignUp)

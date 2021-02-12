@@ -19,6 +19,10 @@ const AddProperty = () => {
 
     <div className="addContainer">
       <div>
+        <p className="title">Email contact</p>
+        <input type="text" name="email"/>
+      </div>
+      <div>
         <p className="title">type of house</p>
         <select name="type_house">
           <option selected="selected" value={1}>

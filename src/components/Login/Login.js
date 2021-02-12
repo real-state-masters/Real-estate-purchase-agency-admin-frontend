@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import firebase from "../../Firebase/Firebase";
 
-const Login = ({ connected, addLoginStatus, saveEmail }) => {
+const Login = ({ connected, addLoginStatus}) => {
   const auth = firebase.auth();
   const db = firebase.firestore();
   // update firestore settings
@@ -33,6 +33,7 @@ const Login = ({ connected, addLoginStatus, saveEmail }) => {
       .then((data) => {
         console.log(data);
         addLoginStatus(data.connected);
+        const mail = document.querySelector('[type=email]').value
         // set cur user in redux global state
       })
       .catch((error) => console.log(error));
@@ -64,7 +65,7 @@ const Login = ({ connected, addLoginStatus, saveEmail }) => {
           placeholder="Enter email"
           value={email}
           onChange={({ target }) => {
-            saveEmail(target.value);
+            setEmail(target.value);
           }}
         />
       </div>
@@ -115,14 +116,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({
         type: "ADD_LOGIN_STATUS",
         payload: value,
-      }),
-
-    saveEmail: (value) => {
-      dispatch({
-        type: "SAVE_EMAIL",
-        payload: value,
-      });
-    },
+      })
   };
 };
 
