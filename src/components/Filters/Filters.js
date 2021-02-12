@@ -122,8 +122,7 @@ const Filters = ({ properties }) => {
       }
     });
 
-    buttons.map((button) => {
-      // forEach?
+    buttons.forEach((button) => {
       if (button.classList.contains("buttonClick")) {
         switch (button.name) {
           case "bedrooms":

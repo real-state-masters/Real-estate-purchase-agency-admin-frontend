@@ -6,7 +6,7 @@ const AddProperty = () => {
   return (
     // "condition": 0, // type: int , 0-> new homes, 1-> good condition , 2-> needs renovation
 
-    <div class="addContainer">
+    <div className="addContainer">
       <div>
         <p className="title">type of house</p>
         <select name="type_house">
@@ -117,6 +117,9 @@ const AddProperty = () => {
           placeHolder="description"
           type="textArea"
         ></textarea>
+      </div>
+      <div>
+        <input type="file" className="custom-file-input-edit"></input>
       </div>
     </div>
   );

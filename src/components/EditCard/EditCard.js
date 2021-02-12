@@ -19,6 +19,7 @@ const EditCard = () => {
   const validateAddress = (e) => {
     e.preventDefault();
     const inputs = [...document.querySelectorAll(".form-container input")];
+
     const adressParams = {};
     inputs.forEach((input) => {
       adressParams[input.getAttribute("name")] = input.value;
@@ -26,6 +27,26 @@ const EditCard = () => {
 
     getAddress(adressParams);
   };
+
+  const validateProperties = (e) => {
+    const inputs = [...document.querySelectorAll(".addContainer input")];
+    const selects = [...document.querySelectorAll(".addContainer select")];
+    const textareas = [...document.querySelectorAll(".addContainer textarea")];
+
+    console.log(inputs)
+    console.log(selects)
+    console.log(textareas)
+
+    const propertiesParams = {};
+    inputs.forEach((input) => {
+      propertiesParams[input.getAttribute("name")] = input.checked;
+    })
+    selects.forEach((select) => {
+      propertiesParams[select.getAttribute("name")] = select.checked;
+    })
+    console.log(propertiesParams)
+
+  }
 
   const getAddress = async (adressParams) => {
     let address = concatAddress(adressParams);
@@ -59,8 +80,13 @@ const EditCard = () => {
           {nextStep && (
             <Button
               onClick={() => {
-                setNextStep(true);
-                setStep(1);
+                if (step === 0) {
+                  setNextStep(true);
+                  setStep(1);
+                } else {
+                  setStep(1);
+                  validateProperties()
+                }
               }}
             >
               Next Step
