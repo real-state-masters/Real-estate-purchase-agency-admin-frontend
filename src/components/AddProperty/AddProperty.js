@@ -2,11 +2,22 @@ import React from "react";
 import InputSlider from "./InputSlider";
 import "./AddProperty.scss";
 
-import UploadImg from "../UploadImage/UploadImage";
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById("visible-img-id").src = e.target.result;
+      //document.getElementById("image-path").value = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+}
 
 const AddProperty = () => {
   return (
-    <div class="addContainer">
+    // "condition": 0, // type: int , 0-> new homes, 1-> good condition , 2-> needs renovation
+
+    <div className="addContainer">
       <div>
         <p className="title">type of house</p>
         <select name="type_house">
@@ -103,7 +114,6 @@ const AddProperty = () => {
         <p className="title">title (optional)</p>
         <input name="title" type="text" />
       </div>
-      <UploadImg></UploadImg>
       <div>
         <p className="title">Description (optional)</p>
         <textarea
@@ -112,6 +122,22 @@ const AddProperty = () => {
           placeholder="description"
           type="textArea"
         ></textarea>
+      </div>
+      <div>
+        <input
+          type="file"
+          onChange={() => readURL(this)}
+          className="custom-file-input-edit"
+          name="image"
+        ></input>
+      </div>
+
+      <div>
+        <img
+          id={"visible-img-id"}
+          className="image-post"
+          alt="property-img"
+        ></img>
       </div>
     </div>
   );

@@ -3,22 +3,22 @@ import React from "react";
 
 // import './SoldMarkContainer.scss'
 
-const SoldMarkContainer = ( {status} ) => {
-    if ( status ) {
-        return (
-            <div className="prop-item">
-                <span className="title">Mark as sold</span>
-                <span className="changeStatusColor">¡VENDIDO!</span>
-            </div>
-        )
-    } else {
-        return (
-            <div className="prop-item">
-                <span className="title">Mark as sold</span>
-                <span className="changeStatusColor">¡DISPONIBLE!</span>
-            </div>
-        )
-    }
-}
+const SoldMarkContainer = ({ status }) => {
+  if (status) {
+    return (
+      <div className="prop-item">
+        <span className="title">Mark as sold</span>
+        <span className="changeStatusColor">¡VENDIDO!</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="prop-item">
+      <span className="title">Mark as sold</span>
+      <span className="changeStatusColor">¡DISPONIBLE!</span>
+    </div>
+  );
+};
 
 export default SoldMarkContainer;

@@ -5,7 +5,10 @@ import AddProperty from "../AddProperty/AddProperty";
 import { Modal, Button } from "react-bootstrap";
 import message from "../../utils/message";
 
-const EditCard = () => {
+import { connect } from "react-redux";
+
+const EditCard = (email) => {
+  console.log(email);
   const [nextStep, setNextStep] = React.useState(false);
   const [location, setLocation] = React.useState({});
   const [step, setStep] = React.useState(0);
@@ -19,12 +22,32 @@ const EditCard = () => {
   const validateAddress = (e) => {
     e.preventDefault();
     const inputs = [...document.querySelectorAll(".form-container input")];
+
     const adressParams = {};
     inputs.forEach((input) => {
       adressParams[input.getAttribute("name")] = input.value;
     });
 
     getAddress(adressParams);
+  };
+
+  const validateProperties = (e) => {
+    const newProperty = {};
+    const selects = [...document.querySelectorAll(".addContainer select")]; // type house, equipment, condition, //roms, //bathroms
+    selects.forEach((select) => {
+      newProperty[select.getAttribute("name")] = select.checked;
+    });
+
+    newProperty["description"] = document.querySelector(
+      ".addContainer textarea"
+    );
+    newProperty["area"] = document.getElementsByName("area")[0];
+    newProperty["price"] = document.getElementsByName("price")[0];
+    newProperty["title"] = document.getElementsByName("title")[0];
+    newProperty["building_use"] = -1;
+
+    const image = document.getElementsByClassName("image")[0];
+    if (image) newProperty["image"] = image.files[0];
   };
 
   const getAddress = async (adressParams) => {
@@ -59,8 +82,13 @@ const EditCard = () => {
           {nextStep && (
             <Button
               onClick={() => {
-                setNextStep(false);
-                setStep(1);
+                if (step === 0) {
+                  setNextStep(true);
+                  setStep(1);
+                } else {
+                  setStep(2);
+                  validateProperties();
+                }
               }}
             >
               Next Step
@@ -92,4 +120,10 @@ const setDummyAddress = () => {
   document.getElementsByName("state")[0].value = "Cataluña";
   document.getElementsByName("country")[0].value = "España";
 };
-export default EditCard;
+
+const mapStateToProps = (state) => {
+  return {
+    email: state.dashboard.email,
+  };
+};
+export default connect(mapStateToProps)(EditCard);
