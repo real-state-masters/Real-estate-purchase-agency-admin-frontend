@@ -2,10 +2,10 @@ import React from "react";
 import InputSlider from "./InputSlider";
 import "./AddProperty.scss";
 
+import UploadImg from "../UploadImage/UploadImage";
+
 const AddProperty = () => {
   return (
-    // "condition": 0, // type: int , 0-> new homes, 1-> good condition , 2-> needs renovation
-
     <div class="addContainer">
       <div>
         <p className="title">type of house</p>
@@ -27,7 +27,6 @@ const AddProperty = () => {
           <option value={2}>furnished</option>
         </select>
       </div>
-
       <div>
         <p className="title">condition</p>
         <select name="equipment">
@@ -42,12 +41,10 @@ const AddProperty = () => {
         <p className="title">Area (square meters)</p>
         <InputSlider name={"area"}></InputSlider>
       </div>
-
       <div style={{ maxWidth: "300px" }}>
         <p className="title">Price ($)</p>
         <InputSlider name={"area"} min={10000} max={100000}></InputSlider>
       </div>
-
       <br />
       <div className="addNum">
         <p className="title">number of bathrooms</p>
@@ -60,7 +57,6 @@ const AddProperty = () => {
           <option value={4}>4+</option>
         </select>
       </div>
-
       <div className="addNum">
         <p className="title">number of rooms</p>
         <select name="num_rooms">
@@ -75,7 +71,6 @@ const AddProperty = () => {
           <option value={4}>4+</option>
         </select>
       </div>
-
       <div className="checkWrapper">
         <div className="check">
           <span className="title">pets allowed</span>
@@ -104,28 +99,23 @@ const AddProperty = () => {
           <input type="checkbox" name="terrace" />
         </div>
       </div>
-
       <div>
         <p className="title">title (optional)</p>
         <input name="title" type="text" />
       </div>
+      <UploadImg></UploadImg>
       <div>
         <p className="title">Description (optional)</p>
         <textarea
           rows={5}
           cols={50}
-          placeHolder="description"
+          placeholder="description"
           type="textArea"
         ></textarea>
       </div>
     </div>
   );
 };
-
-<div className="check">
-  <span className="title">lift</span>
-  <input type="checkbox" name="lift" />
-</div>;
 
 export default AddProperty;
 

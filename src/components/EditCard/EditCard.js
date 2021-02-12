@@ -59,7 +59,7 @@ const EditCard = () => {
           {nextStep && (
             <Button
               onClick={() => {
-                setNextStep(true);
+                setNextStep(false);
                 setStep(1);
               }}
             >
