@@ -8,9 +8,13 @@ import message from "../../utils/message";
 const EditCard = () => {
   const [nextStep, setNextStep] = React.useState(false);
   const [location, setLocation] = React.useState({});
-  const [step, NextStep] = React.useState(0);
+  const [step, setStep] = React.useState(0);
+  const [show, setShow] = React.useState(true);
+  const handleClose = () => setShow(false);
 
-  React.useEffect(setDummyAddress);
+  React.useEffect(() => {
+    if (!step) setDummyAddress();
+  }, [step]);
 
   const validateAddress = (e) => {
     e.preventDefault();
@@ -35,14 +39,11 @@ const EditCard = () => {
     message("address successfully entered", 200);
   };
 
-  const [show, setShow] = React.useState(true);
-  const handleClose = () => setShow(false);
-
   return (
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Property</Modal.Title>
+          <Modal.Title>Add new property</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {step === 0 ? (
@@ -55,7 +56,16 @@ const EditCard = () => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          {nextStep && <Button>Next Step</Button>}
+          {nextStep && (
+            <Button
+              onClick={() => {
+                setNextStep(true);
+                setStep(1);
+              }}
+            >
+              Next Step
+            </Button>
+          )}
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>

@@ -14,26 +14,20 @@ import {
 } from "./FilterTypes";
 const Filters = ({ properties }) => {
   const state = useSelector((state) => state);
-  console.log(state);
-
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
   const applyFilters = (inputFilters) => {
-    // console.log(properties)
-
     const matches = [];
-
     let okToDisplay = true;
     properties.forEach(function (property) {
       // console.log(property)
       // console.log(inputFilters.type, inputFilters.condition, inputFilters.bedrooms, inputFilters.bathrooms, inputFilters.priceRange)
 
       // type of home
-      if (inputFilters.type.includes(property.type)) {
-        okToDisplay = true;
-      } else if (inputFilters.type.length > 0) {
+      if (inputFilters.type.includes(property.type)) okToDisplay = true;
+      else if (inputFilters.type.length) {
         okToDisplay = false;
         return;
       } else {
@@ -89,10 +83,8 @@ const Filters = ({ properties }) => {
         matches.push(property);
       }
     });
-
     // need to update global state in redux store with
     // the properties inside of matches
-    console.log(matches);
   };
 
   const filter = () => {
@@ -113,7 +105,6 @@ const Filters = ({ properties }) => {
       if (input.name !== "searchBox" && input.checked) {
         switch (input.name) {
           case "type":
-            console.log("chegou aqui 2");
             inputFilters.type.push(input.dataset.info);
             break;
           case "condition":
@@ -132,6 +123,7 @@ const Filters = ({ properties }) => {
     });
 
     buttons.map((button) => {
+      // forEach?
       if (button.classList.contains("buttonClick")) {
         switch (button.name) {
           case "bedrooms":

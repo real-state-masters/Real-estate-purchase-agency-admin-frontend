@@ -9,32 +9,31 @@ import RemoveItemContainer from "../RemoveItemContainer/RemoveItemContainer";
 import EditItemContainer from "../EditItemContainer/EditItemContainer";
 
 const PropsContainer = ({ property }) => {
-
   const changeDetailsPage = () => {
-    console.log('hhola')
-    console.log(property._id)
-    
-    if (typeof property._id !== 'undefined') {
-        return <Redirect to='/details' />
+    if (typeof property._id !== "undefined") {
+      return <Redirect to="/details" />;
     }
-  }
+  };
 
   return (
-      <div className="props-container" onClick={changeDetailsPage}>
-        <InfoHouseContainer image={property.images[0]} address={property.location.address}/>
-        <PriceHouseContainer price={property.price}/>
-        <CharacteristicsContainer 
-          rooms={property.num_rooms} 
-          bathrooms={property.num_bathrooms} 
-          area={property.area}
-        />
+    <div className="props-container" onClick={changeDetailsPage}>
+      <InfoHouseContainer
+        image={property.images[0]}
+        address={property.location.address}
+      />
+      <PriceHouseContainer price={property.price} />
+      <CharacteristicsContainer
+        rooms={property.num_rooms}
+        bathrooms={property.num_bathrooms}
+        area={property.area}
+      />
 
-        <SoldMarkContainer status={property.status}/>
-        <div className="edit-remove">
-          <EditItemContainer />
-          <RemoveItemContainer />
-        </div>
+      <SoldMarkContainer status={property.status} />
+      <div className="edit-remove">
+        <EditItemContainer />
+        <RemoveItemContainer />
       </div>
+    </div>
   );
 };
 

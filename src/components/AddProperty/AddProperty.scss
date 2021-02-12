@@ -1,0 +1,64 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+
+
+  .title {
+    font-family: 'Montserrat';
+    color: black;
+    display: block;
+  }
+
+
+  .addContainer>div {
+
+
+    margin-top: 30px;
+  }
+
+  .addNum {
+
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+
+    select {
+      float: right !important;
+      border: none;
+      background-color: white;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+
+  textarea:focus,
+  input:focus,
+  select:focus {
+    outline: none;
+  }
+
+  input:checked {
+    color: #2fbded;
+    background-color: #2fbded;
+  }
+
+  .checkWrapper {
+
+    // display: flex;
+
+    .check {
+      display: flex;
+      margin-top: 0;
+      width: 200px;
+      justify-content: space-between;
+
+
+
+      input {
+
+        margin-left: 20px;
+      }
+
+    }
+  }

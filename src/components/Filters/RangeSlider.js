@@ -1,17 +1,12 @@
 import Slider from "@material-ui/core/Slider";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import formatter from "../../utils/priceConversion";
 
 const useStyles = makeStyles({
   root: {
     width: 300,
   },
-});
-
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
 });
 
 function valuetext(value) {
