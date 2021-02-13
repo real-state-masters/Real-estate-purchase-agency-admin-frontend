@@ -1,8 +1,9 @@
 .filter-container {
     font-size: 15px;
     line-height: 18.9px;
-    width: 85%;
     min-height: 50px;
+    min-width:1500px;
+    
     margin: auto;
     display: flex;
     text-align: none;
@@ -56,6 +57,14 @@
                     margin-bottom: 5px;
                     display: flex;
                 }
+            }
+        }
+
+        .filter-house,.more-filters{
+
+            span{
+
+                margin-left:5px;
             }
         }
     }
@@ -132,6 +141,9 @@ button {
     .filter-block {
         display: flex;
         flex-direction: column;
+
     }
 
 }
+
+

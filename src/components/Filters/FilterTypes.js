@@ -4,7 +4,7 @@ import { Sofa, Bathroom } from "../Properties/logos";
 
 export const MoreFilters = () => {
   return (
-    <div className="filter-type">
+    <div className="filter-type more-filters">
       <span className="title">More filters</span>
       <div className="filter-item">
         <div>
@@ -152,15 +152,11 @@ export const BathroomFilters = () => {
     }
   };
   return (
-    <div className="filter-type">
+    <div className="filter-type ">
       <span className="title">Bathrooms</span>
 
       <Bathroom />
-      <div
-        className="filter-rooms"
-        onKeyDown={toggleRooms}
-        onClick={() => toggleRooms()}
-      >
+      <div className="filter-rooms" onClick={toggleRooms}>
         <button
           data-rooms={1}
           className={`nums ${numBathRooms === "1" && "buttonClick"}`}
@@ -202,17 +198,39 @@ export const PublicationDateFilter = () => {
 
 export const EquipmentFilter = () => {
   return (
+    // <div className="filter-type">
+    //   <span className="title">Equipment</span>
+    //   <br />
+    //   <select name="equipment" id="equipment">
+    //     <option selected="selected" value="indifferent">
+    //       Indifferent
+    //     </option>
+
+    //     <option value="furnished">Furnished</option>
+    //     <option value="fully-fitted-kitchen">Fully fitted kitchen</option>
+    //   </select>
+    // </div>
+
     <div className="filter-type">
       <span className="title">Equipment</span>
-      <br />
-      <select name="equipment" id="equipment">
-        <option selected="selected" value="indifferent">
-          Indifferent
-        </option>
-
-        <option value="furnished">Furnished</option>
-        <option value="fully-fitted-kitchen">Fully fitted kitchen</option>
-      </select>
+      <div className="filter-item filter-house">
+        <div>
+          <div>
+            <input type="checkbox" name="condition" data-info="0" />
+            <span>Indifferent</span>
+          </div>
+          <div>
+            <input type="checkbox" name="condition" data-info="2" />
+            <span>Furnished</span>
+          </div>
+        </div>
+        <div>
+          <div>
+            <input type="checkbox" name="condition" data-info="1" />
+            <span>Fully fitted kitchen</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

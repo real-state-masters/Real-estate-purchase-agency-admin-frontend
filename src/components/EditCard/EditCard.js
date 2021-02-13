@@ -72,7 +72,6 @@ const EditCard = (email) => {
   const getAddress = async (adressParams) => {
     let address = concatAddress(adressParams);
     let result = await fetch(uriMapbox(address));
-
     if (!result.ok) message("address not found", 400);
     result = await result.json();
     let location = saveLocation(result, address);

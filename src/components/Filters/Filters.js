@@ -1,6 +1,7 @@
 import "./Filters.scss";
 import React from "react";
 import { connect, useSelector } from "react-redux";
+import { Modal, Button } from "react-bootstrap";
 import RangeSlider from "./RangeSlider";
 
 import {
@@ -14,6 +15,12 @@ import {
 } from "./FilterTypes";
 const Filters = ({ properties }) => {
   const state = useSelector((state) => state);
+
+  React.useEffect(() => {
+    document.querySelector(".modal-dialog").style.marginRight = "800px";
+
+    // document.querySelectorAll(".modal-content")[0].style.minWidth = "1500px";
+  });
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -22,9 +29,6 @@ const Filters = ({ properties }) => {
     const matches = [];
     let okToDisplay = true;
     properties.forEach(function (property) {
-      // console.log(property)
-      // console.log(inputFilters.type, inputFilters.condition, inputFilters.bedrooms, inputFilters.bathrooms, inputFilters.priceRange)
-
       // type of home
       if (inputFilters.type.includes(property.type)) okToDisplay = true;
       else if (inputFilters.type.length) {
@@ -101,7 +105,7 @@ const Filters = ({ properties }) => {
     const selects = [...document.querySelectorAll("select")];
 
     // <----- input Object filters
-    inputs.map((input) => {
+    inputs.forEach((input) => {
       if (input.name !== "searchBox" && input.checked) {
         switch (input.name) {
           case "type":
@@ -140,26 +144,53 @@ const Filters = ({ properties }) => {
     applyFilters(inputFilters);
   };
 
+  const [show, setShow] = React.useState(true);
+  const handleClose = () => setShow(false);
+
   return (
-    <form onSubmit={handleSubmit} className="filter-container">
-      <div className="filter-block">
-        <HomeFilters></HomeFilters>
-        <ConditionFilters></ConditionFilters>
-      </div>
-      <div className="filter-block">
-        <BedroomFilters></BedroomFilters>
-        <RangeSlider></RangeSlider>
-      </div>
-      <div className="filter-block">
-        <BathroomFilters></BathroomFilters>
-        <PublicationDateFilter></PublicationDateFilter>
-      </div>
-      <div className="filter-block">
-        <EquipmentFilter></EquipmentFilter>
-        <MoreFilters></MoreFilters>
-      </div>
-      <button onClick={filter}>Filter</button>
-    </form>
+    <>
+      <Modal
+        className="modal-filters"
+        show={show}
+        onHide={handleClose}
+        style={{ width: "100%" }}
+      >
+        <form onSubmit={handleSubmit} className="filter-container">
+          <div className="filter-block">
+            <HomeFilters></HomeFilters>
+            <ConditionFilters></ConditionFilters>
+          </div>
+          <div className="filter-block">
+            <BedroomFilters></BedroomFilters>
+            <RangeSlider></RangeSlider>
+          </div>
+          <div className="filter-block">
+            <BathroomFilters></BathroomFilters>
+            <PublicationDateFilter></PublicationDateFilter>
+          </div>
+          <div className="filter-block">
+            <EquipmentFilter></EquipmentFilter>
+            <MoreFilters></MoreFilters>
+          </div>
+          <button style={{ marginRight: "50px" }} onClick={filter}>
+            Filter
+          </button>
+        </form>
+
+        <Button
+          style={{
+            position: "absolute",
+            top: "15px",
+            right: "-700px",
+            zIndex: "1000000",
+          }}
+          variant="secondary"
+          onClick={handleClose}
+        >
+          <span style={{ marginBottom: "10px" }}>x</span>
+        </Button>
+      </Modal>
+    </>
   );
 };
 
