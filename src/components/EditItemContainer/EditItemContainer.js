@@ -1,5 +1,5 @@
 import React from "react";
-import { Edit } from "../PropsContainer/logos";
+import { Edit } from "../Properties/logos";
 
 const EditItemContainer = () => {
   return (

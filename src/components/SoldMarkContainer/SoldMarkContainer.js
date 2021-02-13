@@ -8,7 +8,7 @@ const SoldMarkContainer = ({ status }) => {
     return (
       <div className="prop-item">
         <span className="title">Mark as sold</span>
-        <span className="changeStatusColor">¡VENDIDO!</span>
+        <span className="avaliable">AVALIABLE</span>
       </div>
     );
   }
@@ -16,7 +16,7 @@ const SoldMarkContainer = ({ status }) => {
   return (
     <div className="prop-item">
       <span className="title">Mark as sold</span>
-      <span className="changeStatusColor">¡DISPONIBLE!</span>
+      <span className="sold">SOLD</span>
     </div>
   );
 };

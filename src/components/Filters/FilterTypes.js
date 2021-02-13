@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Sofa, Bathroom } from "../PropsContainer/logos";
+import { Sofa, Bathroom } from "../Properties/logos";
 
 export const MoreFilters = () => {
   return (

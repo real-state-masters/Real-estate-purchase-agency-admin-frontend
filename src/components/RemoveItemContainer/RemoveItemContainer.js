@@ -1,5 +1,5 @@
 import React from "react";
-import { Remove } from "../PropsContainer/logos";
+import { Remove } from "../Properties/logos";
 
 const RemoveItemContainer = () => {
   return (

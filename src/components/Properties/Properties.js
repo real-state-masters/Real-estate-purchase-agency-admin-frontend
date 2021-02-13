@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import "./PropsContainer.scss";
+import "./Properties.scss";
 import InfoHouseContainer from "../InfoHouseContainer/InfoHouseContainer";
 import PriceHouseContainer from "../PriceHouseContainer/PriceHouseContainer";
 import CharacteristicsContainer from "../CharacteristicsContainer/CharacteristicsContainer";

@@ -1,19 +1,28 @@
 .info-results-container {
     display: flex;
     justify-content: space-between;
-    margin-left: 110px;
+    margin-left: 120px;
+    margin-bottom:20px;
 
+    width:83%;
     .events-container {
         display: flex;
-        margin-right: 110px;
-        justify-content: space-between;
-        width: 20%;
+     //   margin-right: 110px;
+  
+        flex-direction: row-reverse;
+       
+      
 
         div {
             svg, span {
                 color: #24C5EF;
                 cursor: pointer;
             }
+
+            margin-left:40px;
+            display:block;
+            float:right;
+            
         }
     }
 }
