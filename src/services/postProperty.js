@@ -1,6 +1,7 @@
-export default async function getProperties(URI, token) {
+export default async function postProperty(URI, token, data) {
   const res = await fetch(URI, {
-    method: "GET",
+    method: "POST",
+    body: data,
     headers: {
       Authorization: "Bearer " + token,
     },

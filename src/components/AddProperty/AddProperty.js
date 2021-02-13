@@ -15,12 +15,10 @@ function readURL(input) {
 
 const AddProperty = () => {
   return (
-    // "condition": 0, // type: int , 0-> new homes, 1-> good condition , 2-> needs renovation
-
     <div className="addContainer">
       <div>
         <p className="title">Email contact</p>
-        <input type="text" name="email"/>
+        <input type="text" name="email" />
       </div>
       <div>
         <p className="title">type of house</p>
@@ -58,7 +56,7 @@ const AddProperty = () => {
       </div>
       <div style={{ maxWidth: "300px" }}>
         <p className="title">Price ($)</p>
-        <InputSlider name={"area"} min={10000} max={100000}></InputSlider>
+        <InputSlider name={"price"} min={10000} max={100000}></InputSlider>
       </div>
       <br />
       <div className="addNum">
@@ -130,7 +128,10 @@ const AddProperty = () => {
       <div>
         <input
           type="file"
-          onChange={() => readURL(this)}
+          onChange={() => {
+            let img = document.getElementsByName("image")[0];
+            readURL(img);
+          }}
           className="custom-file-input-edit"
           name="image"
         ></input>
@@ -148,27 +149,3 @@ const AddProperty = () => {
 };
 
 export default AddProperty;
-
-// "type": "home",     // type: enum  (home/office)
-// "type_house":0, // type: int, -1-> not a house,  0 -> duplex, 1->house, 2->penthouse
-// "area": 232, // type int ( m^²)
-// "status": true,  // type: boolean .  true -> not sold, false-> sold ,
-// "bought_by": 3423423, // type: int ( user_id).  if -1-> not bought by anyone
-// "created_at": , // type: date ( timestamp)
-// "updated_at": "", // type : date ( timestamp)
-// "price": 99999993,  // type: int
-// "images": [], // array of url's  // type: array
-// "description": "asfasdfsfd",  // type:string
-// "num_bathrooms": 2, // type: int
-// "num_rooms": 3, // type: int
-// "pets": true,  // type: bool
-// "garden": false, // type:bool
-// "swimming_pool":true, // type: bool
-// "lift":true, // type: bool
-// "condition": 0, // type: int , 0-> new homes, 1-> good condition , 2-> needs renovation
-// "air_condition":false, // type: bool
-// "terrace":false, // type: bool
-// "contact": 32423422, // admin email
-// "title": "The best one", // type: string
-// "building_use" :  // type:integer, -1-> not an office,  0-> private, 1->co_working , 2-> security_system
-// }
